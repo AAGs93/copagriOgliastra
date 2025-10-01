@@ -1,0 +1,24 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titolo", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Data di pubblicazione", name: "date", widget: "datetime" }
+      - { label: "Autore", name: "author", widget: "string" }
+      - { label: "Categoria", name: "category", widget: "select", options: ["Bandi", "Formazione", "Eventi", "Normative", "Notizie"] }
+      - { label: "Immagine in evidenza", name: "image", widget: "image", required: false }
+      - { label: "Riassunto", name: "excerpt", widget: "text" }
+      - { label: "Contenuto", name: "body", widget: "markdown" }
+      - { label: "Pubblicato", name: "published", widget: "boolean", default: true }
+      - { label: "Tag", name: "tags", widget: "list", required: false }

@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+:root {
+  --primary-red: #e42d00;
+  --earth-brown: #a3a3a3;
+  --golden-accent: #f59e0b;
+
+  /* Primary Red Color Scale */
+  --red-50: #fff0f0;
+  --red-100: #ffe5e4;
+  --red-200: #ffc7c4;
+  --red-300: #ffaba7;
+  --red-400: #ff8982;
+  --red-500: #ff665a;
+  --red-600: #e42d00;
+  --red-700: #ae2000;
+  --red-800: #781300;
+  --red-900: #490700;
+  --red-950: #2f0300;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+}
+
+.hero-gradient {
+  background: linear-gradient(
+    135deg,
+    rgba(228, 45, 0, 0.9) 0%,
+    rgba(163, 163, 163, 0.8) 100%
+  );
+}
+
+.section-divider {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #e42d00 50%,
+    transparent 100%
+  );
+  height: 2px;
+}
+
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Navbar Styles */
+.navbar {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 120px;
+  padding: 1rem 0;
+}
+
+.navbar.scrolled {
+  min-height: 64px;
+  padding: 0.5rem 0;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.navbar-logo {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo-img {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 5rem;
+  height: 5rem;
+}
+
+.navbar.scrolled .navbar-logo-img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.navbar-logo-text {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar.scrolled .navbar-logo-text {
+  transform: scale(0.9);
+}
