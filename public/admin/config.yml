@@ -13,6 +13,7 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Titolo", name: "title", widget: "string" }
+      - { label: "Tag", name: "tags", widget: "list", required: true }
       - { label: "Slug", name: "slug", widget: "string" }
       - { label: "Data di pubblicazione", name: "date", widget: "datetime" }
       - { label: "Autore", name: "author", widget: "string" }
@@ -21,4 +22,4 @@ collections:
       - { label: "Riassunto", name: "excerpt", widget: "text" }
       - { label: "Contenuto", name: "body", widget: "markdown" }
       - { label: "Pubblicato", name: "published", widget: "boolean", default: true }
-      - { label: "Tag", name: "tags", widget: "list", required: false }
+      
