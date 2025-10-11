@@ -313,7 +313,7 @@
     <div class="section-divider"></div>
 
     <!-- Blog Articles Component -->
-    <BlogArticles />
+    <BlogArticles2 />
 
     <!-- CTA Section -->
     <section class="py-16 bg-red-600">
@@ -363,6 +363,9 @@ useHead({
       content:
         "Copagri Ogliastra rappresenta e sostiene le imprese agricole dell'Ogliastra con servizi di assistenza tecnica, fiscale e amministrativa.",
     },
+  ],
+  script: [
+    { src: "https://identity.netlify.com/v1/netlify-identity-widget.js" },
   ],
 });
 </script>
