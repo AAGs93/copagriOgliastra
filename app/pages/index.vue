@@ -313,7 +313,7 @@
     <div class="section-divider"></div>
 
     <!-- Blog Articles Component -->
-    <BlogArticles2 />
+    <BlogArticles3 />
 
     <!-- CTA Section -->
     <section class="py-16 bg-red-600">

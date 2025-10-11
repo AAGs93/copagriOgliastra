@@ -3,7 +3,7 @@ title: "Nuovi bandi PAC 2024: opportunità per le aziende agricole"
 slug: "nuovi-bandi-pac-2024"
 date: "2024-01-15T10:00:00.000Z"
 author: "Staff Copagri"
-category: "Bandi"
+category: "Formazione"
 excerpt: "Sono stati pubblicati i nuovi bandi della Politica Agricola Comune per il 2024. Scopri le opportunità per la tua azienda agricola e come accedere ai contributi."
 published: true
 tags: ["PAC", "bandi", "contributi", "2024"]
@@ -16,11 +16,13 @@ La Politica Agricola Comune (PAC) per il periodo 2024 ha introdotto nuove misure
 ## Principali novità della PAC 2024
 
 ### Sostegno diretto agli agricoltori
+
 - Pagamenti diretti per ettaro
 - Sostegno accoppiato per settori specifici
 - Pagamento per giovani agricoltori
 
 ### Misure per lo sviluppo rurale
+
 - Investimenti in aziende agricole
 - Progetti di innovazione
 - Misure agroambientali
@@ -44,10 +46,10 @@ Copagri Ogliastra offre assistenza completa per:
 
 ## Scadenze importanti
 
-| Misura | Scadenza |
-|--------|----------|
-| Domande PAC | 15 maggio 2024 |
-| PSR - Investimenti | 30 giugno 2024 |
+| Misura                | Scadenza       |
+| --------------------- | -------------- |
+| Domande PAC           | 15 maggio 2024 |
+| PSR - Investimenti    | 30 giugno 2024 |
 | Misure agroambientali | 15 aprile 2024 |
 
 ## Contattaci per assistenza
@@ -60,4 +62,4 @@ Non perdere questa opportunità! I nostri tecnici specializzati sono a tua dispo
 
 ---
 
-*Per maggiori informazioni sui bandi PAC 2024 e per fissare un appuntamento di consulenza, contatta i nostri uffici.*
+_Per maggiori informazioni sui bandi PAC 2024 e per fissare un appuntamento di consulenza, contatta i nostri uffici._

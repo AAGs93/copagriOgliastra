@@ -1,13 +1,15 @@
 ---
 title: prova articolo
-slug: non so cosa sia slug
+slug: prova-articolo
 date: 2025-10-11T11:00:00.000+02:00
 author: alessandro
 category: Bandi
 image: https://images.pexels.com/photos/15721596/pexels-photo-15721596.jpeg
 excerpt: riassunto del contenuto
 published: true
+tags: ["2025"]
 ---
+
 Questo errore in Decap CMS (ex Netlify CMS) —
 
 “Your Git Gateway backend is not returning valid settings. Please make sure it is enabled.”

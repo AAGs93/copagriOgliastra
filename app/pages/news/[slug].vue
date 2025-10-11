@@ -4,27 +4,27 @@
     <section class="py-16 bg-gray-900 text-white">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="mb-6">
-          <UBadge 
-            :color="getCategoryColor(post.category)" 
-            variant="solid" 
+          <UBadge
+            :color="getCategoryColor(post.meta?.category)"
+            variant="solid"
             size="lg"
           >
-            {{ post.category }}
+            {{ post.meta?.category }}
           </UBadge>
         </div>
-        
+
         <h1 class="text-4xl md:text-5xl font-bold mb-6">
           {{ post.title }}
         </h1>
-        
+
         <div class="flex items-center space-x-6 text-gray-300">
           <div class="flex items-center space-x-2">
             <Icon name="i-heroicons-calendar" class="w-5 h-5" />
-            <span>{{ formatDate(post.date) }}</span>
+            <span>{{ formatDate(post.meta?.date) }}</span>
           </div>
           <div class="flex items-center space-x-2">
             <Icon name="i-heroicons-user" class="w-5 h-5" />
-            <span>{{ post.author }}</span>
+            <span>{{ post.meta?.author || "Redazione Copagri" }}</span>
           </div>
           <div class="flex items-center space-x-2">
             <Icon name="i-heroicons-clock" class="w-5 h-5" />
@@ -39,44 +39,20 @@
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="prose prose-lg max-w-none">
           <p class="text-xl text-gray-600 mb-8 font-medium">
-            {{ post.excerpt }}
+            {{ post.description }}
           </p>
-          
+
           <!-- Hero Image -->
-          <div v-if="post.image" class="mb-8">
-            <img 
-              :src="post.image" 
+          <div v-if="post.meta?.image" class="mb-8">
+            <img
+              :src="post.meta.image"
               :alt="post.title"
               class="w-full h-96 object-cover rounded-xl"
             />
           </div>
-          
-          <!-- Article Body (placeholder) -->
-          <div class="space-y-6">
-            <p>
-              Questo è il contenuto dell'articolo. In una implementazione reale, 
-              questo contenuto verrebbe caricato dal CMS (Decap CMS) e potrebbe 
-              includere testo formattato, immagini, video e altri media.
-            </p>
-            
-            <h2>Dettagli del bando</h2>
-            <p>
-              Qui vengono forniti i dettagli specifici del bando o dell'argomento trattato,
-              con tutte le informazioni necessarie per gli agricoltori interessati.
-            </p>
-            
-            <h3>Come partecipare</h3>
-            <ul>
-              <li>Requisito 1: esempio di requisito</li>
-              <li>Requisito 2: altro esempio</li>
-              <li>Requisito 3: ulteriore esempio</li>
-            </ul>
-            
-            <p>
-              Per maggiori informazioni e per ricevere assistenza nella compilazione 
-              delle domande, contatta gli uffici di Copagri Ogliastra.
-            </p>
-          </div>
+
+          <!-- Article body from Markdown -->
+          <ContentRenderer :value="post" />
         </div>
 
         <!-- Article Actions -->
@@ -90,7 +66,7 @@
                 Stampa
               </UButton>
             </div>
-            
+
             <NuxtLink to="/contatti">
               <UButton color="red">
                 <Icon name="i-heroicons-phone" class="w-4 h-4 mr-2" />
@@ -103,36 +79,49 @@
     </article>
 
     <!-- Related Articles -->
-    <section class="py-16 bg-gray-50">
+    <section v-if="relatedPosts.length > 0" class="py-16 bg-gray-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl font-bold text-gray-900 mb-8">Articoli correlati</h2>
-        
+        <h2 class="text-2xl font-bold text-gray-900 mb-8">
+          Articoli correlati
+        </h2>
+
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <article 
-            v-for="relatedPost in relatedPosts" 
-            :key="relatedPost.id"
+          <article
+            v-for="relatedPost in relatedPosts"
+            :key="relatedPost._id"
             class="card-hover"
           >
             <UCard>
               <template #header>
-                <div class="h-48 bg-gradient-to-br from-blue-400 to-purple-500 rounded-t-lg"></div>
-              </template>
-              
-              <div class="p-6">
-                <div class="flex items-center space-x-2 text-sm text-gray-500 mb-3">
-                  <Icon name="i-heroicons-calendar" class="w-4 h-4" />
-                  <span>{{ formatDate(relatedPost.date) }}</span>
+                <div class="h-48 overflow-hidden rounded-t-lg">
+                  <img
+                    :src="
+                      relatedPost.meta?.image ||
+                      getDefaultImage(relatedPost.meta?.category)
+                    "
+                    :alt="relatedPost.title"
+                    class="w-full h-full object-cover"
+                  />
                 </div>
-                
+              </template>
+
+              <div class="p-6">
+                <div
+                  class="flex items-center space-x-2 text-sm text-gray-500 mb-3"
+                >
+                  <Icon name="i-heroicons-calendar" class="w-4 h-4" />
+                  <span>{{ formatDate(relatedPost.meta?.date) }}</span>
+                </div>
+
                 <h3 class="text-lg font-semibold mb-3 line-clamp-2">
                   {{ relatedPost.title }}
                 </h3>
-                
+
                 <p class="text-gray-600 text-sm mb-4 line-clamp-2">
-                  {{ relatedPost.excerpt }}
+                  {{ relatedPost.description }}
                 </p>
-                
-                <NuxtLink :to="`/news/${relatedPost.slug}`">
+
+                <NuxtLink :to="relatedPost._path">
                   <UButton variant="soft" size="sm">
                     Leggi di più
                     <Icon name="i-heroicons-arrow-right" class="w-3 h-3 ml-1" />
@@ -156,13 +145,20 @@
       </div>
     </section>
   </div>
-  
+
   <!-- 404 State -->
   <div v-else class="min-h-screen flex items-center justify-center">
     <div class="text-center">
-      <Icon name="i-heroicons-document-text" class="w-16 h-16 text-gray-400 mx-auto mb-4" />
-      <h1 class="text-2xl font-bold text-gray-900 mb-2">Articolo non trovato</h1>
-      <p class="text-gray-600 mb-6">L'articolo che stai cercando non esiste o è stato rimosso.</p>
+      <Icon
+        name="i-heroicons-document-text"
+        class="w-16 h-16 text-gray-400 mx-auto mb-4"
+      />
+      <h1 class="text-2xl font-bold text-gray-900 mb-2">
+        Articolo non trovato
+      </h1>
+      <p class="text-gray-600 mb-6">
+        L'articolo che stai cercando non esiste o è stato rimosso.
+      </p>
       <NuxtLink to="/news">
         <UButton>
           <Icon name="i-heroicons-arrow-left" class="w-4 h-4 mr-2" />
@@ -174,104 +170,99 @@
 </template>
 
 <script setup>
-const route = useRoute()
+import { storeToRefs } from "pinia";
 
-// Mock data per gli articoli (in una implementazione reale verrebbe da Decap CMS)
-const blogPosts = [
-  {
-    id: 1,
-    title: 'Nuovi bandi PAC 2024: opportunità per le aziende agricole',
-    slug: 'nuovi-bandi-pac-2024',
-    excerpt: 'Sono stati pubblicati i nuovi bandi della Politica Agricola Comune per il 2024. Scopri le opportunità per la tua azienda agricola e come accedere ai contributi.',
-    content: '',
-    author: 'Staff Copagri',
-    date: '2024-01-15',
-    category: 'Bandi',
-    image: null
-  },
-  {
-    id: 2,
-    title: 'Corso di formazione: tecniche innovative in olivicoltura',
-    slug: 'corso-formazione-olivicoltura',
-    excerpt: 'Un corso dedicato alle nuove tecniche di coltivazione dell\'olivo, per migliorare la qualità e la sostenibilità della produzione in Ogliastra.',
-    content: '',
-    author: 'Dott. Mario Rossi',
-    date: '2024-01-12',
-    category: 'Formazione',
-    image: null
-  },
-  {
-    id: 3,
-    title: 'Assemblea annuale dei soci: risultati e progetti futuri',
-    slug: 'assemblea-annuale-soci-2024',
-    excerpt: 'Si è tenuta l\'assemblea annuale di Copagri Ogliastra. Ecco i risultati dell\'anno passato e i progetti per il futuro dell\'agricoltura locale.',
-    content: '',
-    author: 'Presidente Copagri',
-    date: '2024-01-10',
-    category: 'Eventi',
-    image: null
+const route = useRoute();
+const contentStore = useContentStore();
+const { posts } = storeToRefs(contentStore);
+
+// ✅ Carica i contenuti se non sono già in memoria
+await useAsyncData("blog-post", async () => {
+  if (!posts.value.length) {
+    await contentStore.fetchContent();
   }
-]
+  return true;
+});
 
-// Trova l'articolo corrente
+// ✅ Trova l’articolo corrente
 const post = computed(() => {
-  return blogPosts.find(p => p.slug === route.params.slug)
-})
+  return posts.value.find((p) => p.meta.slug === `${route.params.slug}`);
+});
 
-// Articoli correlati
+// ✅ Articoli correlati
 const relatedPosts = computed(() => {
-  if (!post.value) return []
-  
-  return blogPosts
-    .filter(p => p.id !== post.value.id && p.category === post.value.category)
-    .slice(0, 3)
-})
+  if (!post.value) return [];
+  return posts.value
+    .filter(
+      (p) =>
+        p._path !== post.value._path &&
+        p.meta?.category === post.value.meta?.category
+    )
+    .slice(0, 3);
+});
 
-// Tempo di lettura stimato
+// ✅ Tempo di lettura stimato
 const readingTime = computed(() => {
-  if (!post.value) return 0
-  const wordsPerMinute = 200
-  const words = (post.value.excerpt + ' ' + (post.value.content || '')).split(' ').length
-  return Math.ceil(words / wordsPerMinute)
-})
+  if (!post.value) return 0;
+  const wordsPerMinute = 200;
+  const words = post.value.body?.children?.length || 300;
+  return Math.ceil(words / wordsPerMinute);
+});
 
-// Metodi
+// ✅ Utils
 const formatDate = (dateString) => {
-  const date = new Date(dateString)
-  return date.toLocaleDateString('it-IT', {
-    day: '2-digit',
-    month: 'long',
-    year: 'numeric'
-  })
-}
+  if (!dateString) return "";
+  const date = new Date(dateString);
+  return date.toLocaleDateString("it-IT", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  });
+};
 
 const getCategoryColor = (category) => {
   const colors = {
-    'Bandi': 'red',
-    'Formazione': 'blue',
-    'Eventi': 'purple',
-    'Normative': 'orange',
-    'Notizie': 'gray'
-  }
-  return colors[category] || 'gray'
-}
+    Bandi: "red",
+    Formazione: "blue",
+    Eventi: "purple",
+    Normative: "orange",
+    Notizie: "gray",
+  };
+  return colors[category] || "gray";
+};
 
-// SEO dinamico
+const getDefaultImage = (category) => {
+  const images = {
+    Bandi:
+      "https://images.pexels.com/photos/416405/pexels-photo-416405.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+    Formazione:
+      "https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+    Eventi:
+      "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+    Normative:
+      "https://images.pexels.com/photos/5668473/pexels-photo-5668473.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+    Notizie:
+      "https://images.pexels.com/photos/974314/pexels-photo-974314.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+  };
+  return images[category] || images["Notizie"];
+};
+
+// ✅ SEO dinamico
 useHead(() => {
   if (!post.value) {
     return {
-      title: 'Articolo non trovato - Copagri Ogliastra'
-    }
+      title: "Articolo non trovato - Copagri Ogliastra",
+    };
   }
-  
+
   return {
     title: `${post.value.title} - Copagri Ogliastra`,
     meta: [
       {
-        name: 'description',
-        content: post.value.excerpt
-      }
-    ]
-  }
-})
+        name: "description",
+        content: post.value.description,
+      },
+    ],
+  };
+});
 </script>

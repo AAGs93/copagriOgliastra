@@ -11,8 +11,7 @@
         </p>
       </div>
 
-      <!-- Loading State -->
-      <div v-if="pending" class="text-center py-12">
+      <div v-if="pending || contentStore.loading" class="text-center py-12">
         <Icon
           name="i-heroicons-arrow-path"
           class="w-8 h-8 text-primaryRed-600 mx-auto mb-4 animate-spin"
@@ -20,8 +19,7 @@
         <p class="text-gray-600">Caricamento articoli...</p>
       </div>
 
-      <!-- Error State -->
-      <div v-else-if="error" class="text-center py-12">
+      <div v-else-if="error || contentStore.error" class="text-center py-12">
         <Icon
           name="i-heroicons-exclamation-triangle"
           class="w-16 h-16 text-red-500 mx-auto mb-4"
@@ -29,12 +27,12 @@
         <h3 class="text-lg font-medium text-gray-900 mb-2">
           Errore nel caricamento
         </h3>
-        <p class="text-gray-600">{{ error.message }}</p>
+        <p class="text-gray-600">
+          {{ error?.message || contentStore.error }}
+        </p>
       </div>
 
-      <!-- Content -->
-      <div v-else-if="articles && articles.length > 0">
-        <!-- Tabs -->
+      <div v-else-if="contentStore.posts.length > 0">
         <div class="flex flex-wrap justify-center gap-2 mb-8">
           <button
             v-for="tag in availableTags"
@@ -51,47 +49,43 @@
           </button>
         </div>
 
-        <!-- Articles Content -->
         <div v-if="filteredArticles.length > 0">
-          <!-- Featured Article (Latest) -->
-          <div class="mb-12">
+          <div class="mb-1">
             <article
               class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
             >
               <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
-                <!-- Image -->
                 <div class="relative h-64 lg:h-auto">
                   <img
                     :src="
                       featuredArticle.image ||
-                      getDefaultImage(featuredArticle.category)
+                      getDefaultImage(featuredArticle.meta.category)
                     "
                     :alt="featuredArticle.title"
                     class="w-full h-full object-cover"
                   />
                   <div class="absolute top-4 left-4">
                     <UBadge
-                      :color="getCategoryColor(featuredArticle.category)"
+                      :color="getCategoryColor(featuredArticle.meta.category)"
                       variant="solid"
                       size="lg"
                     >
-                      {{ featuredArticle.category }}
+                      {{ featuredArticle.meta.category }}
                     </UBadge>
                   </div>
                 </div>
 
-                <!-- Content -->
                 <div class="p-8 flex flex-col justify-center">
                   <div
                     class="flex items-center space-x-4 text-sm text-gray-500 mb-4"
                   >
                     <div class="flex items-center space-x-1">
                       <Icon name="i-heroicons-calendar" class="w-4 h-4" />
-                      <span>{{ formatDate(featuredArticle.date) }}</span>
+                      <span>{{ formatDate(featuredArticle.meta.date) }}</span>
                     </div>
                     <div class="flex items-center space-x-1">
                       <Icon name="i-heroicons-user" class="w-4 h-4" />
-                      <span>{{ featuredArticle.author }}</span>
+                      <span>{{ featuredArticle.meta.author }}</span>
                     </div>
                   </div>
 
@@ -100,11 +94,11 @@
                   </h3>
 
                   <p class="text-gray-600 mb-6 leading-relaxed">
-                    {{ featuredArticle.excerpt }}
+                    {{ featuredArticle.description }}
                   </p>
 
                   <div class="flex items-center space-x-4">
-                    <NuxtLink :to="`/news/${featuredArticle.slug}`">
+                    <NuxtLink :to="`/news/${featuredArticle.meta.slug}`">
                       <UButton size="lg" color="primaryRed">
                         Leggi l'articolo completo
                         <Icon
@@ -116,7 +110,7 @@
 
                     <div class="flex flex-wrap gap-2">
                       <UBadge
-                        v-for="tag in featuredArticle.tags?.slice(0, 3)"
+                        v-for="tag in featuredArticle.meta.tags?.slice(0, 3)"
                         :key="tag"
                         variant="soft"
                         size="sm"
@@ -130,45 +124,39 @@
             </article>
           </div>
 
-          <!-- Other Articles Grid -->
           <div v-if="otherArticles.length > 0">
-            <h3 class="text-xl font-semibold text-gray-900 mb-6">
-              Altri articoli
-            </h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <article
                 v-for="article in otherArticles"
-                :key="article._id"
+                :key="article.id"
                 class="card-hover"
               >
-                <UCard class="h-full">
-                  <template #header>
-                    <div class="relative h-40 overflow-hidden">
-                      <img
-                        :src="
-                          article.image || getDefaultImage(article.category)
-                        "
-                        :alt="article.title"
-                        class="w-full h-full object-cover"
-                      />
-                      <div class="absolute top-2 left-2">
-                        <UBadge
-                          :color="getCategoryColor(article.category)"
-                          variant="solid"
-                          size="sm"
-                        >
-                          {{ article.category }}
-                        </UBadge>
-                      </div>
+                <div class="h-full">
+                  <div class="relative h-40 overflow-hidden rounded-2xl">
+                    <img
+                      :src="
+                        article.image || getDefaultImage(article.meta.category)
+                      "
+                      :alt="article.title"
+                      class="w-full h-full object-cover"
+                    />
+                    <div class="absolute top-2 left-2">
+                      <UBadge
+                        :color="getCategoryColor(article.meta.category)"
+                        variant="solid"
+                        size="sm"
+                      >
+                        {{ article.meta.category }}
+                      </UBadge>
                     </div>
-                  </template>
+                  </div>
 
                   <div class="p-4">
                     <div
                       class="flex items-center space-x-2 text-xs text-gray-500 mb-2"
                     >
                       <Icon name="i-heroicons-calendar" class="w-3 h-3" />
-                      <span>{{ formatDate(article.date) }}</span>
+                      <span>{{ formatDate(article.meta.date) }}</span>
                     </div>
 
                     <h4
@@ -178,10 +166,10 @@
                     </h4>
 
                     <p class="text-xs text-gray-600 mb-3 line-clamp-3">
-                      {{ article.excerpt }}
+                      {{ article.description }}
                     </p>
 
-                    <NuxtLink :to="`/news/${article.slug}`">
+                    <NuxtLink :to="`news/${article.meta.slug}`">
                       <UButton variant="soft" size="xs" class="w-full">
                         Leggi di più
                         <Icon
@@ -191,13 +179,12 @@
                       </UButton>
                     </NuxtLink>
                   </div>
-                </UCard>
+                </div>
               </article>
             </div>
           </div>
         </div>
 
-        <!-- Empty State for filtered results -->
         <div v-else class="text-center py-12">
           <Icon
             name="i-heroicons-document-text"
@@ -212,7 +199,6 @@
           </p>
         </div>
 
-        <!-- View All Button -->
         <div class="text-center mt-12">
           <NuxtLink to="/news">
             <UButton variant="outline" size="xl" color="primaryRed">
@@ -223,7 +209,6 @@
         </div>
       </div>
 
-      <!-- No Articles State -->
       <div v-else class="text-center py-12">
         <Icon
           name="i-heroicons-document-plus"
@@ -248,62 +233,32 @@
 </template>
 
 <script setup>
-// Carica gli articoli dal CMS usando Nuxt Content v3
-const {
-  data: articles,
-  pending,
-  error,
-} = await useAsyncData("blog-articles", () =>
-  $fetch("/api/_content/query", {
-    method: "GET",
-    query: {
-      _params: JSON.stringify({
-        where: [{ published: { $ne: false } }],
-        sort: [{ date: -1 }],
-        limit: 20,
-      }),
-    },
-  })
-);
+import { storeToRefs } from "pinia";
+import { useContentStore } from "@/stores/contentStore";
 
-// Stati reattivi
+const contentStore = useContentStore();
+
+// SSR-safe: usa useAsyncData per il primo fetch
+const { pending, error } = await useAsyncData("blog-posts-fetch", async () => {
+  await contentStore.fetchContent();
+  return true;
+});
+
+const { posts, loading } = storeToRefs(contentStore);
 const activeTag = ref("Tutti");
 
-// Computed
-const availableTags = computed(() => {
-  if (!articles.value) return ["Tutti"];
+const availableTags = computed(() => ["Tutti", ...contentStore.allTags]);
 
-  const tags = new Set(["Tutti"]);
-  articles.value.forEach((article) => {
-    if (article.tags && Array.isArray(article.tags)) {
-      article.tags.forEach((tag) => tags.add(tag));
-    }
-  });
-  return Array.from(tags);
-});
+const filteredArticles = computed(() =>
+  contentStore.getPostsByTag(activeTag.value)
+);
+console.log(filteredArticles.value);
 
-const filteredArticles = computed(() => {
-  if (!articles.value) return [];
+const featuredArticle = computed(() => filteredArticles.value[0]);
+const otherArticles = computed(() => filteredArticles.value.slice(1, 5));
 
-  if (activeTag.value === "Tutti") {
-    return articles.value;
-  }
-
-  return articles.value.filter(
-    (article) => article.tags && article.tags.includes(activeTag.value)
-  );
-});
-
-const featuredArticle = computed(() => {
-  return filteredArticles.value[0];
-});
-
-const otherArticles = computed(() => {
-  return filteredArticles.value.slice(1, 5); // Mostra massimo 4 articoli nella griglia
-});
-
-// Metodi
 const formatDate = (dateString) => {
+  if (!dateString) return "";
   const date = new Date(dateString);
   return date.toLocaleDateString("it-IT", {
     day: "2-digit",

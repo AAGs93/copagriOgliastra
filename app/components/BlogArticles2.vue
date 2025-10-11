@@ -249,20 +249,23 @@
 
 <script setup>
 // Carica gli articoli dal CMS usando Nuxt Content
-debugger;
-const {
-  data: articles,
-  pending,
-  error,
-} = await useLazyAsyncData("blog-articles", () =>
-  queryCollection("blog").all()
+const { data: posts } = await useAsyncData("posts", () =>
+  queryCollection("blog").select("tags").all()
 );
-const route = useRoute();
-const { data: page } = await useAsyncData(route.path, () => {
-  return queryCollection("blog").order("date", "DESC").all();
+onMounted(async () => {
+  // const { data: posts } = await useAsyncData("posts", () =>
+  //   queryCollection("blog").select("path", "meta.author", "meta.category").all()
+  // );
+  // const { data: xxx } = await useAsyncData("posts", () =>
+  //   queryCollection("blog")
+  //     .only(["path", "title"]) // 'only' è un alias di 'select' e a volte è più leggibile
+  //     .all()
+  // );
+  // const { data } = await useAsyncData("navigation", () => {
+  //   return queryCollectionNavigation("blog");
+  // });
+  // debugger;
 });
-debugger;
-
 // Stati reattivi
 const activeTag = ref("Tutti");
 
