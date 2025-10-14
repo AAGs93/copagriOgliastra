@@ -339,28 +339,26 @@
           prosperare.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <NuxtLink to="/contatti">
-            <UButton
-              size="xl"
-              variant="solid"
-              color="white"
-              class="w-full sm:w-auto"
-            >
-              Contattaci ora
-              <Icon name="i-heroicons-phone" class="w-5 h-5 ml-2" />
-            </UButton>
-          </NuxtLink>
-          <NuxtLink to="/news">
-            <UButton
-              size="xl"
-              variant="outline"
-              color="white"
-              class="w-full sm:w-auto"
-            >
-              Scopri le news
-              <Icon name="i-heroicons-newspaper" class="w-5 h-5 ml-2" />
-            </UButton>
-          </NuxtLink>
+          <UButton
+            to="/contatti"
+            size="xl"
+            variant="solid"
+            color="secondary"
+            class="w-full sm:w-auto"
+          >
+            Contattaci ora
+            <Icon name="i-heroicons-phone" class="w-5 h-5 ml-2" />
+          </UButton>
+          <UButton
+            to="/news"
+            size="xl"
+            variant="outline"
+            color="secondary"
+            class="w-full sm:w-auto"
+          >
+            Scopri le news
+            <Icon name="i-heroicons-newspaper" class="w-5 h-5 ml-2" />
+          </UButton>
         </div>
       </div>
     </section>

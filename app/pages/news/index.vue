@@ -56,7 +56,7 @@
         <div v-if="loading" class="text-center py-12">
           <Icon
             name="i-heroicons-arrow-path"
-            class="w-8 h-8 mx-auto mb-4 animate-spin text-primaryRed-600"
+            class="w-8 h-8 mx-auto mb-4 animate-spin text-primary"
           />
           <p class="text-gray-600">Caricamento articoli...</p>
         </div>

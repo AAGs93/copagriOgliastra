@@ -13,14 +13,14 @@ export const useContentStore = defineStore("content", {
     allTags: (state) => {
       const tags = new Set();
       state.posts.forEach((post) => {
-        post.meta?.tags?.forEach((tag) => tags.add(tag));
+        post.tags?.forEach((tag) => tags.add(tag));
       });
       return Array.from(tags).sort();
     },
 
     getPostsByTag: (state) => (tag) => {
       if (!tag || tag === "Tutti") return state.posts;
-      return state.posts.filter((p) => p.meta?.tags?.includes(tag));
+      return state.posts.filter((p) => p.tags?.includes(tag));
     },
   },
 
