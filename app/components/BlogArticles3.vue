@@ -22,7 +22,7 @@
       <div v-else-if="error || contentStore.error" class="text-center py-12">
         <Icon
           name="i-heroicons-exclamation-triangle"
-          class="w-16 h-16 text-red-500 mx-auto mb-4"
+          class="w-16 h-16 text-primary mx-auto mb-4"
         />
         <h3 class="text-lg font-medium text-gray-900 mb-2">
           Errore nel caricamento

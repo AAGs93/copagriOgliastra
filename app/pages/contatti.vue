@@ -26,7 +26,7 @@
                 >
                   <Icon
                     name="i-heroicons-map-pin"
-                    class="w-6 h-6 text-red-600"
+                    class="w-6 h-6 text-primary"
                   />
                 </div>
                 <div>
@@ -225,7 +225,7 @@
               >
                 <Icon
                   name="i-heroicons-document-text"
-                  class="w-8 h-8 text-red-600"
+                  class="w-8 h-8 text-primary"
                 />
               </div>
             </template>

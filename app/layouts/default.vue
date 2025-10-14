@@ -1,19 +1,13 @@
 <template>
   <div class="min-h-screen bg-gray-50">
     <!-- Header -->
-    <div class="h-4 bg-red-600"></div>
-    <header
-      ref="navbar"
-      class="navbar bg-white sticky top-0 z-50 shadow-sm"
-    >
+    <div class="h-4 bg-primary"></div>
+    <header ref="navbar" class="navbar bg-white sticky top-0 z-50 shadow-sm">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 items-center">
         <div class="flex justify-between items-center">
           <!-- Logo -->
-          <NuxtLink
-            to="/"
-            class="navbar-logo flex items-center space-x-2"
-          >
-            <img 
+          <NuxtLink to="/" class="navbar-logo flex items-center space-x-2">
+            <img
               src="https://images.pexels.com/photos/974314/pexels-photo-974314.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop"
               alt="Copagri Ogliastra Logo"
               class="navbar-logo-img rounded-lg object-cover"
@@ -29,8 +23,8 @@
           <!-- Desktop Navigation -->
           <nav class="hidden md:flex space-x-8">
             <div
-              class="hover:border rounded-sm hover:border-red-600 p-1 hover:bg-red-600 transition-colors"
-              :class="{ 'bg-red-600 transition-colors': $route.path === '/' }"
+              class="hover:border rounded-sm hover:border-primary p-1 hover:bg-primary transition-colors"
+              :class="{ 'bg-primary transition-colors': $route.path === '/' }"
             >
               <NuxtLink
                 to="/"
@@ -41,9 +35,9 @@
               </NuxtLink>
             </div>
             <div
-              class="hover:border rounded-sm hover:border-red-600 p-1 hover:bg-red-600 transition-colors"
+              class="hover:border rounded-sm hover:border-primary p-1 hover:bg-primary transition-colors"
               :class="{
-                'bg-red-600 transition-colors': $route.path.includes('/news'),
+                'bg-primary transition-colors': $route.path.includes('/news'),
               }"
             >
               <NuxtLink
@@ -55,9 +49,9 @@
               </NuxtLink>
             </div>
             <div
-              class="hover:border rounded-sm hover:border-red-600 p-1 hover:bg-red-600 transition-colors"
+              class="hover:border rounded-sm hover:border-primary p-1 hover:bg-primary transition-colors"
               :class="{
-                'bg-red-600 transition-colors': $route.path === '/contatti',
+                'bg-primary transition-colors': $route.path === '/contatti',
               }"
             >
               <NuxtLink
@@ -84,21 +78,21 @@
           <nav class="flex flex-col space-y-4">
             <NuxtLink
               to="/"
-              class="text-gray-600 hover:text-red-600 transition-colors font-medium"
+              class="text-gray-600 hover:text-primary transition-colors font-medium"
               @click="mobileMenuOpen = false"
             >
               Home
             </NuxtLink>
             <NuxtLink
               to="/news"
-              class="text-gray-600 hover:text-red-600 transition-colors font-medium"
+              class="text-gray-600 hover:text-primary transition-colors font-medium"
               @click="mobileMenuOpen = false"
             >
               News
             </NuxtLink>
             <NuxtLink
               to="/contatti"
-              class="text-gray-600 hover:text-red-600 transition-colors font-medium"
+              class="text-gray-600 hover:text-primary transition-colors font-medium"
               @click="mobileMenuOpen = false"
             >
               Contatti
@@ -119,7 +113,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <div class="flex items-center space-x-2 mb-4">
-              <img 
+              <img
                 src="https://images.pexels.com/photos/974314/pexels-photo-974314.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&fit=crop"
                 alt="Copagri Ogliastra Logo"
                 class="w-10 h-10 rounded-lg object-cover"

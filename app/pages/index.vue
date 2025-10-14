@@ -80,7 +80,7 @@
               <div class="flex items-start space-x-3">
                 <Icon
                   name="i-heroicons-check-circle"
-                  class="w-5 h-5 text-red-600 mt-0.5 flex-shrink-0"
+                  class="w-5 h-5 text-primary mt-0.5 flex-shrink-0"
                 />
                 <span class="text-gray-600"
                   >rappresentare le aziende agricole presso le istituzioni</span
@@ -89,7 +89,7 @@
               <div class="flex items-start space-x-3">
                 <Icon
                   name="i-heroicons-check-circle"
-                  class="w-5 h-5 text-red-600 mt-0.5 flex-shrink-0"
+                  class="w-5 h-5 text-primary mt-0.5 flex-shrink-0"
                 />
                 <span class="text-gray-600"
                   >offrire assistenza tecnica, fiscale e amministrativa</span
@@ -98,7 +98,7 @@
               <div class="flex items-start space-x-3">
                 <Icon
                   name="i-heroicons-check-circle"
-                  class="w-5 h-5 text-red-600 mt-0.5 flex-shrink-0"
+                  class="w-5 h-5 text-primary mt-0.5 flex-shrink-0"
                 />
                 <span class="text-gray-600"
                   >promuovere progetti che valorizzino i prodotti locali e le
@@ -108,7 +108,7 @@
               <div class="flex items-start space-x-3">
                 <Icon
                   name="i-heroicons-check-circle"
-                  class="w-5 h-5 text-red-600 mt-0.5 flex-shrink-0"
+                  class="w-5 h-5 text-primary mt-0.5 flex-shrink-0"
                 />
                 <span class="text-gray-600"
                   >creare occasioni di formazione e innovazione</span
@@ -124,7 +124,7 @@
           </div>
 
           <div class="lg:pl-8">
-            <div class="bg-red-600 rounded-2xl p-8 text-white text-center">
+            <div class="bg-primary rounded-2xl p-8 text-white text-center">
               <Icon name="i-heroicons-users" class="w-16 h-16 mx-auto mb-4" />
               <h3 class="text-2xl font-bold mb-4">La nostra missione</h3>
               <p class="text-red-100">
@@ -175,7 +175,7 @@
               <div class="flex items-start space-x-2">
                 <Icon
                   name="i-heroicons-check"
-                  class="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0"
+                  class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"
                 />
                 <span class="text-sm text-gray-600"
                   >Gestione fascicolo aziendale</span
@@ -184,14 +184,14 @@
               <div class="flex items-start space-x-2">
                 <Icon
                   name="i-heroicons-check"
-                  class="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0"
+                  class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"
                 />
                 <span class="text-sm text-gray-600">Domande PAC e PSR</span>
               </div>
               <div class="flex items-start space-x-2">
                 <Icon
                   name="i-heroicons-check"
-                  class="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0"
+                  class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"
                 />
                 <span class="text-sm text-gray-600"
                   >Accesso a bandi e contributi regionali, nazionali ed
@@ -201,7 +201,7 @@
               <div class="flex items-start space-x-2">
                 <Icon
                   name="i-heroicons-check"
-                  class="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0"
+                  class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"
                 />
                 <span class="text-sm text-gray-600"
                   >Pratiche previdenziali e assicurative (INPS, INAIL)</span
@@ -230,7 +230,7 @@
               <div class="flex items-start space-x-2">
                 <Icon
                   name="i-heroicons-check"
-                  class="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0"
+                  class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"
                 />
                 <span class="text-sm text-gray-600"
                   >Contabilità e dichiarazioni fiscali</span
@@ -239,7 +239,7 @@
               <div class="flex items-start space-x-2">
                 <Icon
                   name="i-heroicons-check"
-                  class="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0"
+                  class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"
                 />
                 <span class="text-sm text-gray-600"
                   >Contratti di lavoro agricolo</span
@@ -248,7 +248,7 @@
               <div class="flex items-start space-x-2">
                 <Icon
                   name="i-heroicons-check"
-                  class="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0"
+                  class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"
                 />
                 <span class="text-sm text-gray-600"
                   >Buste paga e gestione dipendenti</span
@@ -257,7 +257,7 @@
               <div class="flex items-start space-x-2">
                 <Icon
                   name="i-heroicons-check"
-                  class="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0"
+                  class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"
                 />
                 <span class="text-sm text-gray-600"
                   >Supporto per previdenza e pensioni</span
@@ -286,7 +286,7 @@
               <div class="flex items-start space-x-2">
                 <Icon
                   name="i-heroicons-check"
-                  class="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0"
+                  class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"
                 />
                 <span class="text-sm text-gray-600"
                   >Consulenza sulle colture tipiche locali</span
@@ -295,7 +295,7 @@
               <div class="flex items-start space-x-2">
                 <Icon
                   name="i-heroicons-check"
-                  class="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0"
+                  class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"
                 />
                 <span class="text-sm text-gray-600"
                   >Piani di concimazione e difesa fitosanitaria</span
@@ -304,7 +304,7 @@
               <div class="flex items-start space-x-2">
                 <Icon
                   name="i-heroicons-check"
-                  class="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0"
+                  class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"
                 />
                 <span class="text-sm text-gray-600"
                   >Assistenza per innovazioni tecnologiche</span
@@ -313,7 +313,7 @@
               <div class="flex items-start space-x-2">
                 <Icon
                   name="i-heroicons-check"
-                  class="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0"
+                  class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"
                 />
                 <span class="text-sm text-gray-600">Pratiche sostenibili</span>
               </div>
@@ -329,7 +329,7 @@
     <BlogArticles3 />
 
     <!-- CTA Section -->
-    <section class="py-16 bg-red-600">
+    <section class="py-16 bg-primary">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-3xl font-bold text-white mb-4">
           Hai bisogno di assistenza per la tua azienda agricola?

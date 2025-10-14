@@ -65,7 +65,7 @@
         <div v-else-if="error" class="text-center py-12">
           <Icon
             name="i-heroicons-exclamation-triangle"
-            class="w-16 h-16 text-red-500 mx-auto mb-4"
+            class="w-16 h-16 text-primary mx-auto mb-4"
           />
           <h3 class="text-lg font-medium text-gray-900 mb-2">
             Errore nel caricamento
@@ -180,7 +180,7 @@ const paginatedPosts = computed(() => {
 // Utils
 const getCategoryColor = (category) => {
   const colors = {
-    Bandi: "bg-red-500 text-white",
+    Bandi: "bg-primary text-white",
     Formazione: "bg-blue-500 text-white",
     Eventi: "bg-purple-500 text-white",
     Normative: "bg-orange-500 text-white",
