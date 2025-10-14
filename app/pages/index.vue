@@ -14,24 +14,6 @@
       />
     </UPageHero>
 
-    <!-- <section class="relative h-[34rem] bg-cover bg-center hero-gradient">
-      <div class="absolute inset-0 bg-black opacity-30"></div>
-      <div
-        class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center"
-      >
-        <div class="text-white">
-          <h1 class="text-4xl md:text-6xl font-bold mb-4">Copagri Ogliastra</h1>
-          <h2 class="text-xl md:text-2xl font-light mb-6 max-w-3xl">
-            Confederazione Produttori Agricoli
-          </h2>
-          <p class="text-lg md:text-xl max-w-4xl leading-relaxed">
-            Rappresentiamo e sosteniamo le imprese agricole dell'Ogliastra,
-            valorizzando la terra, le persone e i prodotti che la rendono unica.
-          </p>
-        </div>
-      </div>
-    </section> -->
-
     <!-- Introduction -->
     <section class="py-16 bg-white">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

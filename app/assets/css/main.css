@@ -26,6 +26,10 @@
   --color-secondo-950: oklch(0.216 0.041 93.31);
 }
 
+:root {
+  --ui-header-height: --spacing(24);
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -43,8 +47,9 @@ body {
 .hero-gradient {
   background: linear-gradient(
     135deg,
-    rgba(228, 45, 0, 0.9) 0%,
-    rgba(163, 163, 163, 0.8) 100%
+    var(--color-primo-600) 0%,
+    /* Utilizza un colore primario leggermente più scuro */
+      var(--color-primo-400) 100% /* Utilizza un colore primario più chiaro */
   );
 }
 

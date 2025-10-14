@@ -6,13 +6,13 @@ export default defineAppConfig({
         },
         pageHero: {
             slots: {
-                root: 'relative isolate',
+                root: 'relative isolate hero-gradient',
                 container: 'flex flex-col lg:grid py-24 sm:py-32 lg:py-40 gap-10 sm:gap-y-24',
                 wrapper: '',
                 header: '',
                 headline: 'mb-4 ',
                 title: 'text-5xl sm:text-7xl text-pretty tracking-tight font-bold text-highlighted',
-                description: 'text-lg sm:text-xl/8 text-muted ',
+                description: 'text-lg sm:text-xl/8 text-muted text-white',
                 body: 'mt-10',
                 footer: 'mt-10',
                 links: 'flex flex-wrap gap-x-6 gap-y-3'
@@ -38,7 +38,7 @@ export default defineAppConfig({
                 },
                 headline: {
                     true: {
-                        headline: 'font-semibold text-primary flex items-center gap-1.5'
+                        headline: 'font-semibold text-secondary flex items-center gap-1.5'
                     }
                 },
                 title: {
