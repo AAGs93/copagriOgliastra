@@ -48,142 +48,149 @@
             {{ tag }}
           </UButton>
         </div>
-        <div v-if="filteredArticles.length > 0">
-          <div class="mb-1">
-            <article
-              class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
-            >
-              <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
-                <div class="relative h-64 lg:h-auto">
-                  <img
-                    :src="
-                      featuredArticle.image ||
-                      getDefaultImage(featuredArticle.meta.category)
-                    "
-                    :alt="featuredArticle.title"
-                    class="w-full h-full object-cover"
-                  />
-                  <div class="absolute top-4 left-4">
-                    <UBadge
-                      :class="getCategoryColor(featuredArticle.meta.category)"
-                      variant="solid"
-                      size="lg"
-                    >
-                      {{ featuredArticle.meta.category }}
-                    </UBadge>
-                  </div>
-                </div>
 
-                <div class="p-8 flex flex-col justify-center">
-                  <div
-                    class="flex items-center space-x-4 text-sm text-gray-500 mb-4"
-                  >
-                    <div class="flex items-center space-x-1">
-                      <Icon name="i-heroicons-calendar" class="w-4 h-4" />
-                      <span>{{ formatDate(featuredArticle.meta.date) }}</span>
-                    </div>
-                    <div class="flex items-center space-x-1">
-                      <Icon name="i-heroicons-user" class="w-4 h-4" />
-                      <span>{{ featuredArticle.meta.author }}</span>
-                    </div>
-                  </div>
-
-                  <h3 class="text-2xl font-bold text-gray-900 mb-4">
-                    {{ featuredArticle.title }}
-                  </h3>
-
-                  <p class="text-gray-600 mb-6 leading-relaxed">
-                    {{ featuredArticle.description }}
-                  </p>
-
-                  <div class="flex items-center space-x-4">
-                    <UButton
-                      :to="`/news/${featuredArticle.meta.slug}`"
-                      size="lg"
-                      color="primary"
-                    >
-                      Leggi l'articolo completo
-                      <Icon
-                        name="i-heroicons-arrow-right"
-                        class="w-4 h-4 ml-2"
-                      />
-                    </UButton>
-
-                    <div class="flex flex-wrap gap-2">
+        <Transition name="drop-down" mode="out-in">
+          <div v-if="filteredArticles.length > 0" :key="activeTag">
+            <div class="mb-1">
+              <article
+                class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+              >
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                  <div class="relative max-h-72 lg:h-auto">
+                    <img
+                      :src="
+                        featuredArticle.image ||
+                        getDefaultImage(featuredArticle.meta.category)
+                      "
+                      :alt="featuredArticle.title"
+                      class="w-full h-full object-cover"
+                    />
+                    <div class="absolute top-4 left-4">
                       <UBadge
-                        v-for="tag in featuredArticle.meta.tags?.slice(0, 3)"
-                        :key="tag"
-                        variant="soft"
-                        size="sm"
+                        :class="getCategoryColor(featuredArticle.meta.category)"
+                        variant="solid"
+                        size="lg"
                       >
-                        {{ tag }}
+                        {{ featuredArticle.meta.category }}
                       </UBadge>
                     </div>
                   </div>
-                </div>
-              </div>
-            </article>
-          </div>
 
-          <div v-if="otherArticles.length > 0">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1">
-              <UBlogPost
-                v-for="article in otherArticles"
-                :key="article.id"
-                :to="`/news/${article.meta.slug}`"
-                :title="article.title"
-                :description="article.description"
-                :image="{
-                  src: article.image || getDefaultImage(article.meta.category),
-                  alt: article.title,
-                }"
-                :date="formatDate(article.meta.date)"
-                :badge="{
-                  label: article.meta.category,
-                  class: getCategoryColor(article.meta.category),
-                  variant: 'solid',
-                  size: 'sm',
-                }"
-                :ui="{
-                  ring: 'ring-1 ring-gray-200 dark:ring-gray-800',
-                  shadow: 'shadow-md hover:shadow-lg transition duration-200',
-                  wrapper: 'h-full',
-                  image: {
-                    wrapper: 'h-40',
-                    img: 'object-cover',
-                  },
-                  body: {
-                    base: 'flex flex-col flex-1',
-                  },
-                  footer: {
-                    base: 'mt-auto pt-3',
-                  },
-                }"
-              >
-                <template #footer>
-                  <UButton variant="soft" size="xs" class="w-full">
-                    Leggi di più
-                    <Icon name="i-heroicons-arrow-right" class="w-3 h-3 ml-1" />
-                  </UButton>
-                </template>
-              </UBlogPost>
+                  <div class="p-8 flex flex-col justify-center">
+                    <div
+                      class="flex items-center space-x-4 text-sm text-gray-500 mb-4"
+                    >
+                      <div class="flex items-center space-x-1">
+                        <Icon name="i-heroicons-calendar" class="w-4 h-4" />
+                        <span>{{ formatDate(featuredArticle.meta.date) }}</span>
+                      </div>
+                      <div class="flex items-center space-x-1">
+                        <Icon name="i-heroicons-user" class="w-4 h-4" />
+                        <span>{{ featuredArticle.meta.author }}</span>
+                      </div>
+                    </div>
+
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">
+                      {{ featuredArticle.title }}
+                    </h3>
+
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                      {{ featuredArticle.description }}
+                    </p>
+
+                    <div class="flex items-center space-x-4">
+                      <UButton
+                        :to="`/news/${featuredArticle.meta.slug}`"
+                        size="lg"
+                        color="primary"
+                      >
+                        Leggi l'articolo completo
+                        <Icon
+                          name="i-heroicons-arrow-right"
+                          class="w-4 h-4 ml-2"
+                        />
+                      </UButton>
+
+                      <div class="flex flex-wrap gap-2">
+                        <UBadge
+                          v-for="tag in featuredArticle.meta.tags?.slice(0, 3)"
+                          :key="tag"
+                          variant="soft"
+                          size="sm"
+                        >
+                          {{ tag }}
+                        </UBadge>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div v-if="otherArticles.length > 0">
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1">
+                <UBlogPost
+                  v-for="article in otherArticles"
+                  :key="article.id"
+                  :to="`/news/${article.meta.slug}`"
+                  :title="article.title"
+                  :description="article.description"
+                  :image="{
+                    src:
+                      article.image || getDefaultImage(article.meta.category),
+                    alt: article.title,
+                  }"
+                  :date="formatDate(article.meta.date)"
+                  :badge="{
+                    label: article.meta.category,
+                    class: getCategoryColor(article.meta.category),
+                    variant: 'solid',
+                    size: 'sm',
+                  }"
+                  :ui="{
+                    ring: 'ring-1 ring-gray-200 dark:ring-gray-800',
+                    shadow: 'shadow-md hover:shadow-lg transition duration-200',
+                    wrapper: 'h-full',
+                    image: {
+                      wrapper: 'h-40',
+                      img: 'object-cover',
+                    },
+                    body: {
+                      base: 'flex flex-col flex-1',
+                    },
+                    footer: {
+                      base: 'mt-auto pt-3',
+                    },
+                  }"
+                >
+                  <template #footer>
+                    <UButton variant="soft" size="xs" class="w-full">
+                      Leggi di più
+                      <Icon
+                        name="i-heroicons-arrow-right"
+                        class="w-3 h-3 ml-1"
+                      />
+                    </UButton>
+                  </template>
+                </UBlogPost>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div v-else class="text-center py-12">
-          <Icon
-            name="i-heroicons-document-text"
-            class="w-16 h-16 text-gray-400 mx-auto mb-4"
-          />
-          <h3 class="text-lg font-medium text-gray-900 mb-2">
-            Nessun articolo trovato per "{{ activeTag }}"
-          </h3>
-          <p class="text-gray-600">
-            Prova a selezionare un altro tag o torna più tardi per nuovi
-            contenuti.
-          </p>
-        </div>
+          <div v-else class="text-center py-12" :key="'no-results'">
+            <Icon
+              name="i-heroicons-document-text"
+              class="w-16 h-16 text-gray-400 mx-auto mb-4"
+            />
+            <h3 class="text-lg font-medium text-gray-900 mb-2">
+              Nessun articolo trovato per "{{ activeTag }}"
+            </h3>
+            <p class="text-gray-600">
+              Prova a selezionare un altro tag o torna più tardi per nuovi
+              contenuti.
+            </p>
+          </div>
+        </Transition>
 
         <div class="text-center mt-12">
           <UButton
@@ -219,15 +226,29 @@
 </template>
 
 <script setup>
-import { storeToRefs } from "pinia";
+// Assumendo che useContentStore e useUtils esistano e siano importabili.
 
-// Assicurati che useUtils sia accessibile (probabilmente un composable)
 const contentStore = useContentStore();
-const { getDefaultImage, getCategoryColor } = useUtils();
+const { getCategoryColor } = useUtils();
+// Se useUtils() non fornisce getDefaultImage, la definiamo qui:
+const getDefaultImage = (category) => {
+  const images = {
+    Bandi:
+      "https://images.pexels.com/photos/416405/pexels-photo-416405.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+    Formazione:
+      "https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+    Eventi:
+      "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+    Normative:
+      "https://images.pexels.com/photos/5668473/pexels-photo-5668473.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+    Notizie:
+      "https://images.pexels.com/photos/974314/pexels-photo-974314.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+  };
+  return images[category] || images["Notizie"];
+};
 
 // SSR-safe: usa useAsyncData per il primo fetch
 const { pending, error } = await useAsyncData("blog-posts-fetch", async () => {
-  // Esegue l'azione, che popola contentStore.posts (se non è già popolato)
   await contentStore.fetchContent();
   return true;
 });
@@ -260,5 +281,24 @@ const formatDate = (dateString) => {
 </script>
 
 <style scoped>
-/* Stili specifici se necessario */
+/* Transizione per l'animazione di "caduta" (drop-down) */
+.drop-down-enter-active,
+.drop-down-leave-active {
+  /* Assicura che l'animazione duri 0.5s e sia fluida */
+  transition:
+    opacity 0.5s ease-out,
+    transform 0.5s ease-out;
+}
+
+/* Stato iniziale (entrata): invisibile e spostato in alto */
+.drop-down-enter-from {
+  opacity: 0;
+  transform: translateY(-20px); /* Parte 20px sopra la posizione finale */
+}
+
+/* Stato finale (uscita): invisibile e spostato in basso */
+.drop-down-leave-to {
+  opacity: 0;
+  transform: translateY(20px); /* Scompare spostandosi 20px sotto */
+}
 </style>
