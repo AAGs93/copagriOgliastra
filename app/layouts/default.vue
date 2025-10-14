@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-gray-50">
     <!-- Header -->
-    <div class="h-4 bg-primary"></div>
+    <div class="h-8 bg-primary"><CustomUiSocialLinks /></div>
     <CustomUiNavBar />
     <!-- Main Content -->
     <main>
