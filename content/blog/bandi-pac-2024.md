@@ -6,7 +6,7 @@ author: "Staff Copagri"
 category: "Formazione"
 excerpt: "Sono stati pubblicati i nuovi bandi della Politica Agricola Comune per il 2024. Scopri le opportunità per la tua azienda agricola e come accedere ai contributi."
 published: true
-tags: ["PAC", "bandi", "contributi", "2024"]
+tags: ["PAC"]
 ---
 
 # Nuovi bandi PAC 2024: un'opportunità da non perdere

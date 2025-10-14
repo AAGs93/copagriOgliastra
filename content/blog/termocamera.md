@@ -1,7 +1,6 @@
 ---
 title: termocamera
-tags:
-  - Formazione
+tags: ["2025"]
 slug: termocamera
 date: 2025-10-11T14:03:00.000+02:00
 author: alessandro
@@ -15,6 +14,7 @@ excerpt: >+
 
 published: true
 ---
+
 Il tuo badge ha già variant="solid", quindi va bene. Ma alcune versioni di UIBadges si aspettano colori specifici (red, blue, green, ecc.) che mappano internamente a Tailwind.
 
 2️⃣ Controlla il colore generato

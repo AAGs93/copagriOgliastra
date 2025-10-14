@@ -24,8 +24,19 @@ export const useUtils = () => {
     };
     return images[category] || images["Notizie"];
   };
+
+  const formatDate = (dateString) => {
+    if (!dateString) return "";
+    const date = new Date(dateString);
+    return date.toLocaleDateString("it-IT", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    });
+  };
   return {
     getCategoryColor,
     getDefaultImage,
+    formatDate,
   };
 };

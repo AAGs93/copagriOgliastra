@@ -33,20 +33,14 @@
       </div>
 
       <div v-else-if="contentStore.posts.length > 0">
-        <div class="flex flex-wrap justify-center gap-2 mb-8">
-          <UButton
-            v-for="tag in availableTags"
-            :key="tag"
-            @click="activeTag = tag"
-            class="px-6 py-3 rounded-full font-medium transition-all duration-300"
-            :class="
-              activeTag === tag
-                ? 'bg-primary text-white shadow-lg'
-                : 'bg-gray-100 text-gray-700 hover:bg-primary hover:text-white'
-            "
-          >
-            {{ tag }}
-          </UButton>
+        <div class="flex justify-center mb-0">
+          <UTabs
+            :items="tagItems"
+            v-model="activeTag"
+            :by="'value'"
+            class="w-full"
+            size="xl"
+          />
         </div>
 
         <Transition name="drop-down" mode="out-in">
@@ -126,7 +120,6 @@
                 </div>
               </article>
             </div>
-
             <div v-if="otherArticles.length > 0">
               <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1">
                 <UBlogPost
@@ -147,31 +140,7 @@
                     variant: 'solid',
                     size: 'sm',
                   }"
-                  :ui="{
-                    ring: 'ring-1 ring-gray-200 dark:ring-gray-800',
-                    shadow: 'shadow-md hover:shadow-lg transition duration-200',
-                    wrapper: 'h-full',
-                    image: {
-                      wrapper: 'h-40',
-                      img: 'object-cover',
-                    },
-                    body: {
-                      base: 'flex flex-col flex-1',
-                    },
-                    footer: {
-                      base: 'mt-auto pt-3',
-                    },
-                  }"
                 >
-                  <template #footer>
-                    <UButton variant="soft" size="xs" class="w-full">
-                      Leggi di più
-                      <Icon
-                        name="i-heroicons-arrow-right"
-                        class="w-3 h-3 ml-1"
-                      />
-                    </UButton>
-                  </template>
                 </UBlogPost>
               </div>
             </div>
@@ -229,36 +198,30 @@
 // Assumendo che useContentStore e useUtils esistano e siano importabili.
 
 const contentStore = useContentStore();
-const { getCategoryColor } = useUtils();
-// Se useUtils() non fornisce getDefaultImage, la definiamo qui:
-const getDefaultImage = (category) => {
-  const images = {
-    Bandi:
-      "https://images.pexels.com/photos/416405/pexels-photo-416405.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
-    Formazione:
-      "https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
-    Eventi:
-      "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
-    Normative:
-      "https://images.pexels.com/photos/5668473/pexels-photo-5668473.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
-    Notizie:
-      "https://images.pexels.com/photos/974314/pexels-photo-974314.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
-  };
-  return images[category] || images["Notizie"];
-};
+const { getCategoryColor, getDefaultImage, formatDate } = useUtils();
 
-// SSR-safe: usa useAsyncData per il primo fetch
 const { pending, error } = await useAsyncData("blog-posts-fetch", async () => {
   await contentStore.fetchContent();
   return true;
 });
 
-// Stato reattivo locale per il tag selezionato
+// --- LOGICA FILTRI UTabs (Semplificata) ---
+
+// 1. Stato reattivo locale (la stringa del tag)
 const activeTag = ref("Tutti");
 
-// Getter Pinia 'allTags' è reattivo. Usiamo un computed per aggiungere "Tutti"
+// 2. Getter per tutti i tag disponibili
 const availableTags = computed(() => ["Tutti", ...contentStore.allTags]);
 
+// 3. Formato richiesto da UTabs: DEVE includere 'value' per l'opzione :by="'value'"
+const tagItems = computed(() =>
+  availableTags.value.map((tag) => ({
+    label: tag,
+    value: tag, // Il valore è la stringa del tag
+  }))
+);
+
+// --- Logica Articoli ---
 // Getter Pinia 'getPostsByTag' è reattivo e dipende da activeTag.value
 const filteredArticles = computed(() =>
   contentStore.getPostsByTag(activeTag.value)
@@ -269,36 +232,24 @@ const featuredArticle = computed(() => filteredArticles.value[0]);
 const otherArticles = computed(() => filteredArticles.value.slice(1, 5));
 
 // Funzioni di utilità
-const formatDate = (dateString) => {
-  if (!dateString) return "";
-  const date = new Date(dateString);
-  return date.toLocaleDateString("it-IT", {
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
-  });
-};
 </script>
 
 <style scoped>
 /* Transizione per l'animazione di "caduta" (drop-down) */
 .drop-down-enter-active,
 .drop-down-leave-active {
-  /* Assicura che l'animazione duri 0.5s e sia fluida */
   transition:
     opacity 0.5s ease-out,
     transform 0.5s ease-out;
 }
 
-/* Stato iniziale (entrata): invisibile e spostato in alto */
 .drop-down-enter-from {
   opacity: 0;
-  transform: translateY(-20px); /* Parte 20px sopra la posizione finale */
+  transform: translateY(-20px);
 }
 
-/* Stato finale (uscita): invisibile e spostato in basso */
 .drop-down-leave-to {
   opacity: 0;
-  transform: translateY(20px); /* Scompare spostandosi 20px sotto */
+  transform: translateY(20px);
 }
 </style>
