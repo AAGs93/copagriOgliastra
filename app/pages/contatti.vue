@@ -1,18 +1,13 @@
 <template>
   <div>
     <!-- Page Header -->
-    <section
-      class="py-16 bg-gradient-to-r from-red-600 to-red-700 text-white"
-    >
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 class="text-4xl font-bold mb-4">Contatta Copagri Ogliastra</h1>
-        <p class="text-xl text-red-100 max-w-3xl">
-          Hai bisogno di assistenza, vuoi diventare socio o semplicemente
+    <UPageHero
+      title="Copagri Ogliastra"
+      description=" Hai bisogno di assistenza, vuoi diventare socio o semplicemente
           chiederci informazioni? Siamo a disposizione: scegli il canale che
-          preferisci per parlare con noi.
-        </p>
-      </div>
-    </section>
+          preferisci per parlare con noi."
+      headline="Contatta"
+    />
 
     <div class="py-16 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

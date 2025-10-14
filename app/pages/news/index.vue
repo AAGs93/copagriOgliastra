@@ -1,7 +1,13 @@
 <template>
   <div>
     <!-- Header -->
-    <section
+    <UPageHero
+      title="News e Aggiornamenti"
+      description="Rimani aggiornato su bandi, eventi, corsi di formazione e tutte le
+          novità del mondo agricolo in Ogliastra."
+      headline="I nostri articoli"
+    />
+    <!-- <section
       class="py-16 bg-gradient-to-r from-blue-600 to-blue-700 text-white"
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -11,7 +17,7 @@
           novità del mondo agricolo in Ogliastra.
         </p>
       </div>
-    </section>
+    </section> -->
 
     <!-- Filtri -->
     <section class="py-8 bg-white border-b">
@@ -84,65 +90,23 @@
           v-else
           class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          <article
+          <UBlogPost
             v-for="post in paginatedPosts"
-            :key="post._id"
-            class="card-hover"
+            :key="post.id"
+            :title="post.title"
+            :description="post.description"
+            :image="getPostImage(post)"
+            :date="post.date"
+            :author="post.meta.author"
+            :to="`/news/${post.meta.slug}`"
+            :tags="post.tags"
+            :badge="{
+              label: post.tags[0],
+              class: getCategoryColor(post.meta.category),
+              variant: 'solid',
+            }"
           >
-            <UCard>
-              <template #header>
-                <div
-                  class="h-48 bg-gradient-to-br from-red-400 to-orange-500 rounded-t-lg relative overflow-hidden"
-                >
-                  <img
-                    v-if="post.image"
-                    :src="post.image"
-                    :alt="post.title"
-                    class="w-full h-full object-cover"
-                  />
-                  <div class="absolute top-4 left-4">
-                    <UBadge
-                      :class="getCategoryColor(post.meta.category)"
-                      variant="solid"
-                      size="sm"
-                    >
-                      {{ post.tags[0] }}
-                    </UBadge>
-                  </div>
-                </div>
-              </template>
-
-              <div class="p-6">
-                <div
-                  class="flex items-center space-x-4 text-sm text-gray-500 mb-3"
-                >
-                  <div class="flex items-center space-x-1">
-                    <Icon name="i-heroicons-calendar" class="w-4 h-4" />
-                    <span>{{ formatDate(post.meta.date) }}</span>
-                  </div>
-                  <div class="flex items-center space-x-1">
-                    <Icon name="i-heroicons-user" class="w-4 h-4" />
-                    <span>{{ post.meta.author }}</span>
-                  </div>
-                </div>
-
-                <h3 class="text-lg font-semibold mb-3 line-clamp-2">
-                  {{ post.title }}
-                </h3>
-
-                <p class="text-gray-600 text-sm mb-4 line-clamp-3">
-                  {{ post.meta.excerpt }}
-                </p>
-
-                <NuxtLink :to="`/news/${post.meta.slug}`">
-                  <UButton variant="soft" size="sm">
-                    Leggi di più
-                    <Icon name="i-heroicons-arrow-right" class="w-3 h-3 ml-1" />
-                  </UButton>
-                </NuxtLink>
-              </div>
-            </UCard>
-          </article>
+          </UBlogPost>
         </div>
 
         <!-- Paginazione -->
@@ -169,6 +133,10 @@ const searchQuery = ref("");
 const currentPage = ref(1);
 const pageSize = 6;
 
+// ✅ Immagine placeholder predefinita
+const placeholderImage =
+  "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80";
+
 // Fetch iniziale
 onMounted(async () => {
   await contentStore.fetchContent();
@@ -183,12 +151,10 @@ const allTags = computed(() => contentStore.allTags);
 const filteredPosts = computed(() => {
   let posts = contentStore.posts;
 
-  // Filtro per tag
   if (selectedTag.value && selectedTag.value !== "Tutti") {
     posts = contentStore.getPostsByTag(selectedTag.value);
   }
 
-  // Filtro per ricerca
   if (searchQuery.value) {
     const query = searchQuery.value.toLowerCase();
     posts = posts.filter(
@@ -211,24 +177,18 @@ const paginatedPosts = computed(() => {
   return filteredPosts.value.slice(start, end);
 });
 
-// Metodi
-const formatDate = (dateString) => {
-  const date = new Date(dateString);
-  return date.toLocaleDateString("it-IT", {
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
-  });
-};
-
+// Utils
 const getCategoryColor = (category) => {
   const colors = {
-    Bandi: "bg-red-500",
-    Formazione: "bg-blue-500",
-    Eventi: "bg-purple-500",
-    Normative: "bg-orange-500",
-    Notizie: "bg-gray-500",
+    Bandi: "bg-red-500 text-white",
+    Formazione: "bg-blue-500 text-white",
+    Eventi: "bg-purple-500 text-white",
+    Normative: "bg-orange-500 text-white",
+    Notizie: "bg-gray-500 text-white",
   };
-  return colors[category] || "gray";
+  return colors[category] || "bg-gray-400 text-white";
 };
+
+// ✅ Funzione per immagine con fallback
+const getPostImage = (post) => post.image || placeholderImage;
 </script>

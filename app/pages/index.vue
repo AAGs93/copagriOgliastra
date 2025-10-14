@@ -1,7 +1,20 @@
 <template>
   <div>
     <!-- Hero Section -->
-    <section class="relative h-[34rem] bg-cover bg-center hero-gradient">
+    <UPageHero
+      title="Copagri Ogliastra"
+      description="Rappresentiamo e sosteniamo le imprese agricole dell'Ogliastra, valorizzando la terra, le persone e i prodotti che la rendono unica."
+      headline="Confederazione Produttori Agricoli"
+      orientation="horizontal"
+    >
+      <img
+        src="https://ui.nuxt.com/_ipx/_/blocks/image4.png"
+        alt="App screenshot"
+        class="rounded-lg shadow-2xl ring ring-default"
+      />
+    </UPageHero>
+
+    <!-- <section class="relative h-[34rem] bg-cover bg-center hero-gradient">
       <div class="absolute inset-0 bg-black opacity-30"></div>
       <div
         class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center"
@@ -17,7 +30,7 @@
           </p>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- Introduction -->
     <section class="py-16 bg-white">
