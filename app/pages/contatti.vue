@@ -108,7 +108,7 @@
           </div>
 
           <!-- Form di contatto -->
-          <div>
+          <!-- <div>
             <UCard>
               <template #header>
                 <h2 class="text-2xl font-bold text-gray-900">
@@ -200,7 +200,8 @@
                 </UButton>
               </UForm>
             </UCard>
-          </div>
+          </div> -->
+          <CustomUiContactForm />
         </div>
       </div>
     </div>
@@ -296,17 +297,6 @@ useHead({
   ],
 });
 
-// const schema = z.object({
-//   nome: z.string().min(2, "Il nome deve avere almeno 2 caratteri"),
-//   cognome: z.string().min(2, "Il cognome deve avere almeno 2 caratteri"),
-//   email: z.string().email("Email non valida"),
-//   telefono: z.string().min(10, "Numero di telefono non valido"),
-//   tipo: z.string().min(1, "Seleziona un tipo di richiesta"),
-//   messaggio: z.string().min(10, "Il messaggio deve avere almeno 10 caratteri"),
-//   privacy: z
-//     .boolean()
-//     .refine((val) => val === true, "Devi accettare la privacy policy"),
-// });
 const schema = {};
 
 const state = reactive({
