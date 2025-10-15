@@ -1,16 +1,11 @@
 <template>
-  <section class="py-16 bg-white">
+  <UPageSection
+    class="bg-white"
+    title="Ultime notizie dal mondo agricolo"
+    description=" Resta aggiornato su bandi, eventi, corsi di formazione e tutte le
+          novità che riguardano l'agricoltura dell'Ogliastra."
+  >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-gray-900 mb-4">
-          Ultime notizie dal mondo agricolo
-        </h2>
-        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-          Resta aggiornato su bandi, eventi, corsi di formazione e tutte le
-          novità che riguardano l'agricoltura dell'Ogliastra.
-        </p>
-      </div>
-
       <div v-if="pending || contentStore.loading" class="text-center py-12">
         <Icon
           name="i-heroicons-arrow-path"
@@ -47,7 +42,7 @@
           <div v-if="filteredArticles.length > 0" :key="activeTag">
             <div class="mb-1">
               <article
-                class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                class="bg-white rounded-md shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
               >
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
                   <div class="relative max-h-72 lg:h-auto">
@@ -191,7 +186,7 @@
         </UButton>
       </div>
     </div>
-  </section>
+  </UPageSection>
 </template>
 
 <script setup>
@@ -208,10 +203,12 @@ const { pending, error } = await useAsyncData("blog-posts-fetch", async () => {
 // --- LOGICA FILTRI UTabs (Semplificata) ---
 
 // 1. Stato reattivo locale (la stringa del tag)
-const activeTag = ref("Tutti");
+// const activeTag = ref("Tutti");
+const activeTag = ref(contentStore.allTags[0]);
 
 // 2. Getter per tutti i tag disponibili
-const availableTags = computed(() => ["Tutti", ...contentStore.allTags]);
+// const availableTags = computed(() => ["Tutti", ...contentStore.allTags]);
+const availableTags = computed(() => [...contentStore.allTags]);
 
 // 3. Formato richiesto da UTabs: DEVE includere 'value' per l'opzione :by="'value'"
 const tagItems = computed(() =>
