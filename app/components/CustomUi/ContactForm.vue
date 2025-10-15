@@ -54,11 +54,7 @@
           <template #label>
             <span class="text-sm">
               Accetto il trattamento dei dati personali secondo la
-              <ULink
-                to="/privacy"
-                class="text-primary font-medium"
-                target="_blank"
-              >
+              <ULink class="text-primary font-medium" target="_blank">
                 Privacy Policy
               </ULink>
               *
