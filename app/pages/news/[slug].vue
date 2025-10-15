@@ -5,7 +5,7 @@
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="mb-6">
           <UBadge
-            :class="getCategoryColor(article.meta?.category)"
+            :color="getCategoryColor(post.meta?.category)"
             variant="solid"
             size="lg"
           >
