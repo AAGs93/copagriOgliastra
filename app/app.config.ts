@@ -38,7 +38,7 @@ export default defineAppConfig({
                 },
                 headline: {
                     true: {
-                        headline: 'font-semibold text-secondary flex items-center gap-1.5'
+                        headline: 'font-semibold text-white flex items-center gap-1.5'
                     }
                 },
                 title: {

@@ -5,7 +5,7 @@
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="mb-6">
           <UBadge
-            :color="getCategoryColor(post.meta?.category)"
+            :class="getCategoryColor(article.meta.category)"
             variant="solid"
             size="lg"
           >
@@ -171,6 +171,7 @@
 
 <script setup>
 import { storeToRefs } from "pinia";
+const { getCategoryColor, getDefaultImage, formatDate } = useUtils();
 
 const route = useRoute();
 const contentStore = useContentStore();
@@ -208,44 +209,6 @@ const readingTime = computed(() => {
   const words = post.value.body?.children?.length || 300;
   return Math.ceil(words / wordsPerMinute);
 });
-
-// ✅ Utils
-const formatDate = (dateString) => {
-  if (!dateString) return "";
-  const date = new Date(dateString);
-  return date.toLocaleDateString("it-IT", {
-    day: "2-digit",
-    month: "long",
-    year: "numeric",
-  });
-};
-
-const getCategoryColor = (category) => {
-  const colors = {
-    Bandi: "red",
-    Formazione: "blue",
-    Eventi: "purple",
-    Normative: "orange",
-    Notizie: "gray",
-  };
-  return colors[category] || "gray";
-};
-
-const getDefaultImage = (category) => {
-  const images = {
-    Bandi:
-      "https://images.pexels.com/photos/416405/pexels-photo-416405.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
-    Formazione:
-      "https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
-    Eventi:
-      "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
-    Normative:
-      "https://images.pexels.com/photos/5668473/pexels-photo-5668473.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
-    Notizie:
-      "https://images.pexels.com/photos/974314/pexels-photo-974314.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
-  };
-  return images[category] || images["Notizie"];
-};
 
 // ✅ SEO dinamico
 useHead(() => {

@@ -30,6 +30,7 @@
       <div v-else-if="contentStore.posts.length > 0">
         <div class="flex justify-center mb-0">
           <UTabs
+            color="secondary"
             :items="tagItems"
             v-model="activeTag"
             :by="'value'"
@@ -91,7 +92,7 @@
                       <UButton
                         :to="`/news/${featuredArticle.meta.slug}`"
                         size="lg"
-                        color="primary"
+                        color="secondary"
                       >
                         Leggi l'articolo completo
                         <Icon

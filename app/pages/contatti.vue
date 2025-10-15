@@ -96,118 +96,108 @@
               <div
                 class="bg-gray-200 rounded-lg h-64 flex items-center justify-center"
               >
-                <div class="text-center">
-                  <Icon
-                    name="i-heroicons-map"
-                    class="w-12 h-12 text-gray-400 mx-auto mb-2"
-                  />
-                  <p class="text-gray-500">Mappa Google Maps</p>
+                <div class="text-center rounded-md h-64">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3058.219755467095!2d9.5070377!3d39.9588392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12de6af8a5d8d86d%3A0x7d949d5327479572!2sVillagrande%20S.via%20Roma%20236A!5e0!3m2!1sit!2sit!4v1760542279013!5m2!1sit!2sit"
+                    width="590"
+                    style="border: 0"
+                    allowfullscreen=""
+                    loading="lazy"
+                    class="rounded-lg h-64"
+                    referrerpolicy="no-referrer-when-downgrade"
+                  ></iframe>
                 </div>
               </div>
             </div>
           </div>
 
           <!-- Form di contatto -->
-          <!-- <div>
-            <UCard>
-              <template #header>
-                <h2 class="text-2xl font-bold text-gray-900">
-                  Invia un messaggio
-                </h2>
-                <p class="text-gray-600 mt-2">
-                  Compila il form per inviarci un messaggio. Ti risponderemo al
-                  più presto.
-                </p>
-              </template>
-
-              <UForm
-                :schema="schema"
-                :state="state"
-                class="space-y-6"
-                @submit="onSubmit"
+          <div class="text-pretty space-y-10">
+            <div
+              class="space-y-4 p-5 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700"
+            >
+              <h4
+                class="text-lg font-bold text-gray-900 dark:text-white border-b pb-2 border-gray-200 dark:border-gray-700"
               >
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <UFormGroup label="Nome" name="nome">
-                    <UInput
-                      v-model="state.nome"
-                      placeholder="Il tuo nome"
-                      icon="i-heroicons-user"
-                    />
-                  </UFormGroup>
+                Contatti e Orari
+              </h4>
 
-                  <UFormGroup label="Cognome" name="cognome">
-                    <UInput
-                      v-model="state.cognome"
-                      placeholder="Il tuo cognome"
-                      icon="i-heroicons-user"
-                    />
-                  </UFormGroup>
+              <div class="flex items-start space-x-3">
+                <UIcon
+                  name="i-heroicons-clock"
+                  class="w-5 h-5 text-primary flex-shrink-0 mt-1"
+                />
+                <p class="text-sm text-gray-700 dark:text-gray-300">
+                  <span class="font-semibold">Orari Ufficio:</span>
+                  Aperto dal lunedì al venerdì ore 9:00 - 12:30.
+                </p>
+              </div>
+
+              <div class="flex items-start space-x-3">
+                <UIcon
+                  name="i-heroicons-map-pin"
+                  class="w-5 h-5 text-primary flex-shrink-0 mt-1"
+                />
+                <p class="text-sm text-gray-700 dark:text-gray-300">
+                  <span class="font-semibold">Sede Legale:</span>
+                  Via Roma 56, Villagrande
+                </p>
+              </div>
+
+              <div class="pt-3 border-t border-gray-200 dark:border-gray-700">
+                <div class="flex space-x-3 items-center">
+                  <UIcon
+                    name="i-heroicons-envelope"
+                    class="w-5 h-5 text-primary flex-shrink-0"
+                  />
+                  <p
+                    class="text-sm font-semibold text-gray-900 dark:text-white"
+                  >
+                    Posta Elettronica Certificata (PEC):
+                  </p>
                 </div>
-
-                <UFormGroup label="Email" name="email">
-                  <UInput
-                    v-model="state.email"
-                    type="email"
-                    placeholder="la.tua@email.it"
-                    icon="i-heroicons-envelope"
-                  />
-                </UFormGroup>
-
-                <UFormGroup label="Telefono" name="telefono">
-                  <UInput
-                    v-model="state.telefono"
-                    placeholder="Il tuo numero di telefono"
-                    icon="i-heroicons-phone"
-                  />
-                </UFormGroup>
-
-                <UFormGroup label="Tipo di richiesta" name="tipo">
-                  <USelect
-                    v-model="state.tipo"
-                    :options="tipiRichiesta"
-                    placeholder="Seleziona il tipo di richiesta"
-                  />
-                </UFormGroup>
-
-                <UFormGroup label="Messaggio" name="messaggio">
-                  <UTextarea
-                    v-model="state.messaggio"
-                    rows="5"
-                    placeholder="Scrivi qui il tuo messaggio..."
-                  />
-                </UFormGroup>
-
-                <div class="flex items-center space-x-2">
-                  <UCheckbox v-model="state.privacy" name="privacy" />
-                  <label for="privacy" class="text-sm text-gray-600">
-                    Accetto il trattamento dei dati personali secondo la privacy
-                    policy
-                  </label>
-                </div>
-
-                <UButton
-                  type="submit"
-                  size="lg"
-                  :loading="loading"
-                  :disabled="!state.privacy"
-                  class="w-full"
+                <NuxtLink
+                  class="text-sm text-secondary hover:underline font-medium ml-9"
+                  to="mailto:caacafagri.ogliastra@pec.it"
                 >
-                  <Icon
-                    name="i-heroicons-paper-airplane"
-                    class="w-5 h-5 mr-2"
+                  caacafagri.ogliastra@pec.it
+                </NuxtLink>
+              </div>
+              <div>
+                <div class="flex space-x-3 items-center pt-2">
+                  <UIcon
+                    name="i-heroicons-envelope-open"
+                    class="w-5 h-5 text-primary flex-shrink-0"
                   />
-                  Invia messaggio
-                </UButton>
-              </UForm>
-            </UCard>
-          </div> -->
-          <CustomUiContactForm />
+                  <p
+                    class="text-sm font-semibold text-gray-900 dark:text-white"
+                  >
+                    Email Servizi Generali:
+                  </p>
+                </div>
+                <NuxtLink
+                  class="text-sm text-secondary hover:underline font-medium ml-9"
+                  to="mailto:servizioagrivet@gmail.com"
+                >
+                  servizioagrivet@gmail.com
+                </NuxtLink>
+              </div>
+
+              <div
+                v-if="false"
+                class="pt-3 border-t border-gray-200 dark:border-gray-700 text-xs italic text-gray-500 dark:text-gray-400"
+              >
+                Nota: Il numero di telefono non è disponibile.
+              </div>
+            </div>
+            <CustomUiContactForm />
+          </div>
         </div>
       </div>
     </div>
 
     <!-- Sezione servizi veloci -->
-    <section class="py-16 bg-gray-50">
+    <section class="py-16 bg-gray-50" v-if="false">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
           <h2 class="text-3xl font-bold text-gray-900 mb-4">

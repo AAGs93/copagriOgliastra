@@ -1,11 +1,11 @@
 export const useUtils = () => {
   const getCategoryColor = (category) => {
     const colors = {
-      bandi: "bg-primary text-white",
-      formazione: "bg-blue-500 text-white",
+      sociale: "bg-primary text-white",
+      cultura: "bg-blue-500 text-white",
       eventi: "bg-purple-500 text-white",
-      normative: "bg-orange-500 text-white",
-      notizie: "bg-gray-500 text-white",
+      salute: "bg-orange-500 text-white",
+      economia: "bg-gray-500 text-white",
     };
     return colors[category.toLowerCase()] || "bg-gray-400 text-white";
   };

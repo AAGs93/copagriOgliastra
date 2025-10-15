@@ -1,6 +1,6 @@
 ---
 title: termocamera
-tags: ["2025"]
+tags: ["Cultura"]
 slug: termocamera
 date: 2025-10-11T14:03:00.000+02:00
 author: alessandro

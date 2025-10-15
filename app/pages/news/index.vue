@@ -20,7 +20,7 @@
     </section> -->
 
     <!-- Filtri -->
-    <section class="py-8 bg-white border-b">
+    <section class="py-8 bg-white border-b" v-if="false">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           class="flex flex-col sm:flex-row gap-4 items-center justify-between"
@@ -124,6 +124,7 @@
 
 <script setup>
 import { useContentStore } from "~/stores/contentStore";
+const { getCategoryColor } = useUtils();
 
 const contentStore = useContentStore();
 
@@ -178,16 +179,6 @@ const paginatedPosts = computed(() => {
 });
 
 // Utils
-const getCategoryColor = (category) => {
-  const colors = {
-    Bandi: "bg-primary text-white",
-    Formazione: "bg-blue-500 text-white",
-    Eventi: "bg-purple-500 text-white",
-    Normative: "bg-orange-500 text-white",
-    Notizie: "bg-gray-500 text-white",
-  };
-  return colors[category] || "bg-gray-400 text-white";
-};
 
 // ✅ Funzione per immagine con fallback
 const getPostImage = (post) => post.image || placeholderImage;

@@ -8,9 +8,9 @@
       orientation="horizontal"
     >
       <img
-        src="https://ui.nuxt.com/_ipx/_/blocks/image4.png"
+        src="/images/home_foto1.jpg"
         alt="App screenshot"
-        class="rounded-lg shadow-2xl ring ring-default"
+        class="rounded-md shadow-2xl ring ring-default"
       />
     </UPageHero>
 
@@ -35,7 +35,7 @@
     <UPageSection
       class="bg-gray-50"
       orientation="horizontal"
-      title="Chi siamo – Una presenza vicina agli agricoltori dell'Ogliastra"
+      title="Una presenza vicina agli agricoltori dell'Ogliastra"
     >
       <template #description>
         <div class="space-y-2 font-light text-md mb-6">
@@ -61,7 +61,7 @@
           <div class="flex items-start space-x-3">
             <Icon
               name="i-heroicons-check-circle"
-              class="w-5 h-5 text-primary mt-0.5 flex-shrink-0"
+              class="w-5 h-5 text-secondary mt-0.5 flex-shrink-0"
             />
             <span class="text-gray-600"
               >rappresentare le aziende agricole presso le istituzioni</span
@@ -70,7 +70,7 @@
           <div class="flex items-start space-x-3">
             <Icon
               name="i-heroicons-check-circle"
-              class="w-5 h-5 text-primary mt-0.5 flex-shrink-0"
+              class="w-5 h-5 text-secondary mt-0.5 flex-shrink-0"
             />
             <span class="text-gray-600"
               >offrire assistenza tecnica, fiscale e amministrativa</span
@@ -79,7 +79,7 @@
           <div class="flex items-start space-x-3">
             <Icon
               name="i-heroicons-check-circle"
-              class="w-5 h-5 text-primary mt-0.5 flex-shrink-0"
+              class="w-5 h-5 text-secondary mt-0.5 flex-shrink-0"
             />
             <span class="text-gray-600"
               >promuovere progetti che valorizzino i prodotti locali e le
@@ -89,7 +89,7 @@
           <div class="flex items-start space-x-3">
             <Icon
               name="i-heroicons-check-circle"
-              class="w-5 h-5 text-primary mt-0.5 flex-shrink-0"
+              class="w-5 h-5 text-secondary mt-0.5 flex-shrink-0"
             />
             <span class="text-gray-600"
               >creare occasioni di formazione e innovazione</span
@@ -110,7 +110,7 @@
         ></div>
 
         <img
-          src="https://images.pexels.com/photos/5231144/pexels-photo-5231144.jpeg"
+          src="/images/chisiamo_1.jpg"
           alt="Agricoltori in Ogliastra"
           class="relative rounded-2xl shadow-lg w-full h-auto"
         />
@@ -130,8 +130,8 @@
 
     <!-- I Nostri Servizi -->
     <UPageSection
-      class=""
-      title="I nostri servizi – Assistenza tecnica, fiscale e amministrativa"
+      class="bg-primary-50"
+      title="Assistenza tecnica, fiscale e amministrativa"
       description="Offriamo una gamma completa di servizi per supportare le aziende
             agricole in ogni aspetto della loro attività."
     >
@@ -141,21 +141,21 @@
           <UCard class="card-hover">
             <div class="space-y-6">
               <!-- Header -->
-              <div class="flex justify-center items-center space-x-2">
-                <div
-                  class="w-12 h-12 rounded-lg flex items-center justify-center"
-                >
+              <div class="flex items-center gap-2">
+                <div class="h-12 rounded-lg flex items-center">
                   <UIcon
                     name="i-heroicons-document-text"
                     class="w-6 h-6 text-blue-600"
                   />
                 </div>
-                <h3 class="text-xl font-semibold">Assistenza amministrativa</h3>
+                <h3 class="text-xl font-semibold text-start">
+                  Assistenza amministrativa
+                </h3>
               </div>
 
               <!-- Testimonial Text -->
               <div class="space-y-2">
-                <div class="flex items-start space-x-2">
+                <div class="flex items-center space-x-2">
                   <Icon
                     name="i-heroicons-check"
                     class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"
@@ -164,14 +164,14 @@
                     >Gestione fascicolo aziendale</span
                   >
                 </div>
-                <div class="flex items-start space-x-2">
+                <div class="flex items-center space-x-2">
                   <Icon
                     name="i-heroicons-check"
                     class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"
                   />
                   <span class="text-sm text-gray-600">Domande PAC e PSR</span>
                 </div>
-                <div class="flex items-start space-x-2">
+                <div class="flex items-center space-x-2">
                   <Icon
                     name="i-heroicons-check"
                     class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"
@@ -181,7 +181,7 @@
                     europei</span
                   >
                 </div>
-                <div class="flex items-start space-x-2">
+                <div class="flex items-center space-x-2">
                   <Icon
                     name="i-heroicons-check"
                     class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"
@@ -197,10 +197,8 @@
           <UCard class="card-hover">
             <div class="space-y-6">
               <!-- Header -->
-              <div class="flex justify-center items-center space-x-2">
-                <div
-                  class="w-12 h-12 rounded-lg flex items-center justify-center"
-                >
+              <div class="flex items-center gap-2">
+                <div class="h-12 rounded-lg flex items-center">
                   <UIcon
                     name="i-heroicons-calculator"
                     class="w-6 h-6 text-yellow-600"
@@ -255,10 +253,8 @@
           <UCard class="card-hover">
             <div class="space-y-6">
               <!-- Header -->
-              <div class="flex justify-center items-center space-x-2">
-                <div
-                  class="w-12 h-12 rounded-lg flex items-center justify-center"
-                >
+              <div class="flex items-center gap-2">
+                <div class="h-12 rounded-lg flex items-center">
                   <UIcon
                     name="i-heroicons-beaker"
                     class="w-6 h-6 text-green-600"
@@ -329,7 +325,7 @@
         {
           label: 'Contattaci ora',
           icon: 'i-heroicons-phone',
-          color: 'primary',
+          color: 'secondary',
           to: '/contatti',
           variant: 'solid',
           size: 'xl',
@@ -337,7 +333,7 @@
         {
           label: 'Scopri le news',
           icon: 'i-heroicons-newspaper',
-          color: 'primary',
+          color: 'secondary',
           to: '/news',
           variant: 'outline',
           size: 'xl',

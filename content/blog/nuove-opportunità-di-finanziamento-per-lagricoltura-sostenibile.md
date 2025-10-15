@@ -1,7 +1,6 @@
 ---
 title: Nuove Opportunità di Finanziamento per l'Agricoltura Sostenibile
-tags:
-  - "2025"
+tags: ["Eventi"]
 slug: nuove-opportunita-bandi
 date: 2025-10-15T09:48:00.000+02:00
 author: alessandro
@@ -18,7 +17,9 @@ published: true
 Il bando, atteso da tempo, mira a incentivare le aziende agricole ogliastrine a investire in tecnologie all'avanguardia per l'efficienza idrica e la riduzione dell'impatto ambientale.
 
 ### Requisiti Principali
+
 Per poter accedere ai fondi, le aziende devono dimostrare di:
+
 1.  Essere iscritte alla Camera di Commercio da almeno due anni.
 2.  Presentare un piano di investimento dettagliato e un'analisi dei costi-benefici.
 3.  Impegnarsi nella formazione continua del personale su temi di sostenibilità.

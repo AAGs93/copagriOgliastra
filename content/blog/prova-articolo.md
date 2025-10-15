@@ -7,7 +7,7 @@ category: Bandi
 image: https://images.pexels.com/photos/15721596/pexels-photo-15721596.jpeg
 excerpt: riassunto del contenuto
 published: true
-tags: ["2025"]
+tags: ["Cultura"]
 ---
 
 Questo errore in Decap CMS (ex Netlify CMS) —
