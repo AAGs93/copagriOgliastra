@@ -3,11 +3,13 @@
     <UHeader mode="drawer">
       <template #title>
         <NuxtLink to="/" class="flex items-center space-x-2">
-          <img
-            src="/images/logo_copagri_og.png"
-            alt="Copagri Ogliastra Logo"
-            class="rounded-lg object-cover h-64 w-full"
-          />
+          <div class="h-20">
+            <img
+              src="/images/logo_copagri_og1.png"
+              alt="Copagri Ogliastra Logo"
+              class="rounded-lg object-cover h-full w-auto"
+            />
+          </div>
         </NuxtLink>
       </template>
 
