@@ -13,7 +13,7 @@
         <NuxtLink to="/" class="flex items-center space-x-2">
           <div class="h-20">
             <img
-              src="/images/logo_copagri_og1.png"
+              src="/images/logo_copagri_og1.PNG"
               alt="Copagri Ogliastra Logo"
               class="rounded-lg object-cover h-full w-auto"
             />
