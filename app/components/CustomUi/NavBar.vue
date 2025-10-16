@@ -1,6 +1,14 @@
 <template>
   <div>
-    <UHeader mode="drawer">
+    <UHeader
+      mode="drawer"
+      :toggle="{
+        color: 'secondary',
+        variant: 'subtle',
+        size: 'xl',
+        class: 'rounded-md ',
+      }"
+    >
       <template #title>
         <NuxtLink to="/" class="flex items-center space-x-2">
           <div class="h-20">
