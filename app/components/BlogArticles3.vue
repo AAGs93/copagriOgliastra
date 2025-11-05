@@ -46,14 +46,16 @@
                 class="bg-white rounded-md shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
               >
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
-                  <div class="relative max-h-72 lg:h-auto">
+                  <div
+                    class="relative max-h-72 lg:h-auto justify-center items-center"
+                  >
                     <img
                       :src="
                         featuredArticle.image ||
                         getDefaultImage(featuredArticle.meta.category)
                       "
                       :alt="featuredArticle.title"
-                      class="w-full h-full object-cover"
+                      class="w-full h-full object-cover rounded-md justify-center items-center"
                     />
                     <div class="absolute top-4 left-4">
                       <UBadge
@@ -142,18 +144,20 @@
             </div>
           </div>
 
-          <div v-else class="text-center py-12" :key="'no-results'">
-            <Icon
-              name="i-heroicons-document-text"
-              class="w-16 h-16 text-gray-400 mx-auto mb-4"
-            />
-            <h3 class="text-lg font-medium text-gray-900 mb-2">
-              Nessun articolo trovato per "{{ activeTag }}"
-            </h3>
-            <p class="text-gray-600">
-              Prova a selezionare un altro tag o torna più tardi per nuovi
-              contenuti.
-            </p>
+          <div v-else class="text-center py-12 flex" :key="'no-results'">
+            <div class="mx-auto w-full">
+              <Icon
+                name="i-heroicons-document-text"
+                class="w-16 h-16 text-gray-400 mx-auto mb-4"
+              />
+              <h3 class="text-lg font-medium text-gray-900 mb-2">
+                Nessun articolo trovato per "{{ activeTag }}"
+              </h3>
+              <p class="text-gray-600">
+                Prova a selezionare un altro tag o torna più tardi per nuovi
+                contenuti.
+              </p>
+            </div>
           </div>
         </Transition>
 
@@ -212,11 +216,17 @@ const activeTag = ref(contentStore.allTags[0]);
 const availableTags = computed(() => [...contentStore.allTags]);
 
 // 3. Formato richiesto da UTabs: DEVE includere 'value' per l'opzione :by="'value'"
-const tagItems = computed(() =>
-  availableTags.value.map((tag) => ({
-    label: tag,
-    value: tag, // Il valore è la stringa del tag
-  }))
+const tagItems = computed(
+  () => [
+    { label: "Sociale", value: "sociale" },
+    { label: "Cultura", value: "cultura" },
+    { label: "Sostenibilità", value: "sostenibilita" },
+    { label: "Economia", value: "economia" },
+  ]
+  // availableTags.value.map((tag) => ({
+  //   label: tag,
+  //   value: tag, // Il valore è la stringa del tag
+  // }))
 );
 
 // --- Logica Articoli ---

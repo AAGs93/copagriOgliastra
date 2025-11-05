@@ -13,13 +13,12 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Titolo", name: "title", widget: "string" }
-      - { label: "Tag", name: "tags", widget: "list", required: true, options: ["Sociale", "Cultura", "Salute", "Economia", "Eventi"] }
+      - { label: "Tag", name: "tags", widget: "select", required: true, options: ["Sociale", "Cultura", "Sostenibilità", "Economia"] }
       - { label: "Slug", name: "slug", widget: "string" }
       - { label: "Data di pubblicazione", name: "date", widget: "datetime" }
-      - { label: "Autore", name: "author", widget: "string" }
-      - { label: "Categoria", name: "category", widget: "select",required: true, options: ["Sociale", "Cultura", "Salute", "Economia", "Eventi"] }
+      - { label: "Autore", name: "author", widget: "select", required: true, options: ["Copagri Ogliastra", "Ylenia"] }
+      - { label: "Categoria", name: "category", widget: "select",required: true, options: ["Sociale", "Cultura", "Sostenibilità", "Economia"] }
       - { label: "Immagine in evidenza", name: "image", widget: "image", required: false }
-      - { label: "Riassunto", name: "excerpt", widget: "text" }
       - { label: "Contenuto", name: "body", widget: "markdown" }
       - { label: "Pubblicato", name: "published", widget: "boolean", default: true }
       

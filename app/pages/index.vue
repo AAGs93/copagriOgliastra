@@ -160,26 +160,14 @@
                     name="i-heroicons-check"
                     class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"
                   />
-                  <span class="text-sm text-gray-600"
-                    >Gestione fascicolo aziendale</span
-                  >
+                  <span class="text-sm text-gray-600">Assistenza fiscale</span>
                 </div>
                 <div class="flex items-center space-x-2">
                   <Icon
                     name="i-heroicons-check"
                     class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"
                   />
-                  <span class="text-sm text-gray-600">Domande PAC e PSR</span>
-                </div>
-                <div class="flex items-center space-x-2">
-                  <Icon
-                    name="i-heroicons-check"
-                    class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"
-                  />
-                  <span class="text-sm text-gray-600"
-                    >Accesso a bandi e contributi regionali, nazionali ed
-                    europei</span
-                  >
+                  <span class="text-sm text-gray-600">Assistenza legale</span>
                 </div>
                 <div class="flex items-center space-x-2">
                   <Icon
@@ -187,8 +175,15 @@
                     class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"
                   />
                   <span class="text-sm text-gray-600"
-                    >Pratiche previdenziali e assicurative (INPS, INAIL)</span
+                    >Assistenza amministrativa</span
                   >
+                </div>
+                <div class="flex items-center space-x-2">
+                  <Icon
+                    name="i-heroicons-check"
+                    class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"
+                  />
+                  <span class="text-sm text-gray-600">Assistenza tecnica</span>
                 </div>
               </div>
             </div>

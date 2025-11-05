@@ -3,24 +3,18 @@ export const useUtils = () => {
     const colors = {
       sociale: "bg-primary text-white",
       cultura: "bg-blue-500 text-white",
-      eventi: "bg-purple-500 text-white",
-      salute: "bg-orange-500 text-white",
+      sostenibilità: "bg-purple-500 text-white",
       economia: "bg-gray-500 text-white",
     };
     return colors[category.toLowerCase()] || "bg-gray-400 text-white";
   };
   const getDefaultImage = (category) => {
     const images = {
-      Bandi:
-        "https://images.pexels.com/photos/416405/pexels-photo-416405.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
-      Formazione:
-        "https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
-      Eventi:
-        "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
-      Normative:
-        "https://images.pexels.com/photos/5668473/pexels-photo-5668473.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
-      Notizie:
-        "https://images.pexels.com/photos/974314/pexels-photo-974314.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      Bandi: "/images/logo_copagri_og.png",
+      Formazione: "/images/logo_copagri_og.png",
+      Eventi: "/images/logo_copagri_og.png",
+      Normative: "/images/logo_copagri_og.png",
+      Notizie: "/images/logo_copagri_og.png",
     };
     return images[category] || images["Notizie"];
   };

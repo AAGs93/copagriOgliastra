@@ -140,7 +140,7 @@
                 />
                 <p class="text-sm text-gray-700 dark:text-gray-300">
                   <span class="font-semibold">Sede Legale:</span>
-                  Via Roma 56, Villagrande
+                  Via Roma n.56, Villagrande Strisaili 08049
                 </p>
               </div>
 

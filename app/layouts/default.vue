@@ -37,9 +37,9 @@
             <h3 class="font-semibold mb-4">Servizi</h3>
             <ul class="space-y-2 text-sm text-gray-300">
               <li>Assistenza amministrativa</li>
-              <li>Consulenza fiscale</li>
-              <li>Supporto tecnico</li>
-              <li>Pratiche PAC e PSR</li>
+              <li>Assistenza fiscale</li>
+              <li>Assistenza tecnica</li>
+              <li>Assistenza legale</li>
             </ul>
           </div>
 
@@ -47,8 +47,8 @@
             <h3 class="font-semibold mb-4">Contatti</h3>
             <div class="space-y-2 text-sm text-gray-300">
               <div class="flex items-center space-x-2">
-                <Icon name="i-heroicons-phone" class="w-4 h-4" />
-                <span>[numero telefono]</span>
+                <Icon name="i-heroicons-envelope" class="w-4 h-4" />
+                <span>[email]</span>
               </div>
               <div class="flex items-center space-x-2">
                 <Icon name="i-heroicons-envelope" class="w-4 h-4" />
@@ -56,7 +56,7 @@
               </div>
               <div class="flex items-start space-x-2">
                 <Icon name="i-heroicons-map-pin" class="w-4 h-4 mt-0.5" />
-                <span>[indirizzo sede]</span>
+                <span>Via Roma n.56, Villagrande Strisaili 08049</span>
               </div>
             </div>
           </div>
