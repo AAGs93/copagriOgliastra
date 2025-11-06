@@ -2,7 +2,7 @@
 title: "Pacchetto Agricoltura: premiate le imprese agricole che investono in
   sicurezza e legalità"
 tags:
-  - SOCIALE
+  - Sociale
 slug: Il Consiglio dei Ministri ha approvato il decreto-legge “Lavoro e
   Sicurezza”, che include il nuovo Pacchetto Agricoltura promosso dal Ministro
   dell’Agricoltura, della Sovranità alimentare e delle Foreste, Francesco
@@ -16,6 +16,7 @@ excerpt: Il Consiglio dei Ministri ha approvato il decreto-legge “Lavoro e
   Lollobrigida.
 published: true
 ---
+
 # 🌾 Il Pacchetto Agricoltura: Lavoro e Sicurezza per le Imprese Agricole Virtuose
 
 Il **Consiglio dei Ministri** ha approvato il decreto-legge **“Lavoro e Sicurezza”**, che include il nuovo **Pacchetto Agricoltura** promosso dal Ministro dell’Agricoltura, della Sovranità alimentare e delle Foreste, **Francesco Lollobrigida**.
@@ -30,8 +31,8 @@ L’obiettivo è **sostenere le imprese agricole virtuose**, promuovere la **sic
 
 Tra le principali misure del decreto, è prevista una **riduzione dei contributi INAIL** per le imprese agricole che non abbiano subito condanne o sanzioni in materia di sicurezza.
 
-* Un incentivo concreto per chi opera nel rispetto delle regole.
-* Obiettivo: promuovere la cultura della prevenzione e migliorare le condizioni di lavoro nelle aziende agricole.
+- Un incentivo concreto per chi opera nel rispetto delle regole.
+- Obiettivo: promuovere la cultura della prevenzione e migliorare le condizioni di lavoro nelle aziende agricole.
 
 ---
 
@@ -41,8 +42,8 @@ Il decreto introduce inoltre una riforma della **Rete del Lavoro Agricolo di Qua
 
 Le imprese che aderiranno dovranno essere pienamente conformi alle normative su salute e sicurezza sul lavoro agricolo, ottenendo in cambio:
 
-* **Corsie preferenziali** nei bandi INAIL.
-* **Accesso agevolato** ai benefici previsti.
+- **Corsie preferenziali** nei bandi INAIL.
+- **Accesso agevolato** ai benefici previsti.
 
 ---
 
@@ -50,8 +51,8 @@ Le imprese che aderiranno dovranno essere pienamente conformi alle normative su 
 
 Per rafforzare la sicurezza nelle campagne italiane, il provvedimento prevede:
 
-* Nuovi **strumenti tecnologici**.
-* **Campagne informative** e **programmi di formazione professionale** per gli operatori agricoli.
-* Un potenziamento dell’**Ispettorato nazionale del lavoro** insieme al **Comando Carabinieri per la tutela del lavoro**.
+- Nuovi **strumenti tecnologici**.
+- **Campagne informative** e **programmi di formazione professionale** per gli operatori agricoli.
+- Un potenziamento dell’**Ispettorato nazionale del lavoro** insieme al **Comando Carabinieri per la tutela del lavoro**.
 
 > “Vogliamo rendere la qualità del lavoro un vantaggio competitivo” – ha aggiunto Lollobrigida – “Chi tutela i propri dipendenti deve avere più opportunità e meno burocrazia. È un intervento costruito in sinergia con la Ministra del Lavoro, Marina Elvira Calderone, per valorizzare il lavoro onesto, la qualità delle produzioni italiane e rendere il sistema agricolo più moderno e sicuro”.

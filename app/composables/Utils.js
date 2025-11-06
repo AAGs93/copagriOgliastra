@@ -8,15 +8,22 @@ export const useUtils = () => {
     };
     return colors[category.toLowerCase()] || "bg-gray-400 text-white";
   };
+  const getCleanedImageUrl = (imageUrl) => {
+    if (!imageUrl) return getDefaultImage("bandi");
+    const publicIndex = imageUrl.indexOf("/public");
+    if (publicIndex === -1) return imageUrl;
+    return imageUrl.slice(publicIndex + 7);
+  };
   const getDefaultImage = (category) => {
-    const images = {
-      Bandi: "/images/logo_copagri_og.png",
-      Formazione: "/images/logo_copagri_og.png",
-      Eventi: "/images/logo_copagri_og.png",
-      Normative: "/images/logo_copagri_og.png",
-      Notizie: "/images/logo_copagri_og.png",
-    };
-    return images[category] || images["Notizie"];
+    // const images = {
+    //   Bandi: "/images/logo_copagri_og.png",
+    //   Formazione: "/images/logo_copagri_og.png",
+    //   Eventi: "/images/logo_copagri_og.png",
+    //   Normative: "/images/logo_copagri_og.png",
+    //   Notizie: "/images/logo_copagri_og.png",
+    // };
+    // return images[category] || images["Notizie"];
+    return "/images/logo_copagri_og.png";
   };
 
   const formatDate = (dateString) => {
@@ -30,6 +37,7 @@ export const useUtils = () => {
   };
   return {
     getCategoryColor,
+    getCleanedImageUrl,
     getDefaultImage,
     formatDate,
   };

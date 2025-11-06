@@ -27,7 +27,7 @@
         </p>
       </div>
 
-      <div v-else-if="contentStore.posts.length > 0">
+      <div v-else-if="contentStore.posts.length > 0 && activeTag">
         <div class="flex justify-center mb-0">
           <UTabs
             color="secondary"
@@ -50,10 +50,7 @@
                     class="relative max-h-72 lg:h-auto justify-center items-center"
                   >
                     <img
-                      :src="
-                        featuredArticle.image ||
-                        getDefaultImage(featuredArticle.meta.category)
-                      "
+                      :src="getCleanedImageUrl(featuredArticle.image)"
                       :alt="featuredArticle.title"
                       class="w-full h-full object-cover rounded-md justify-center items-center"
                     />
@@ -127,8 +124,7 @@
                   :title="article.title"
                   :description="article.description"
                   :image="{
-                    src:
-                      article.image || getDefaultImage(article.meta.category),
+                    src: getCleanedImageUrl(article.image),
                     alt: article.title,
                   }"
                   :date="formatDate(article.meta.date)"
@@ -185,10 +181,6 @@
           Non ci sono ancora articoli pubblicati. Torna più tardi per nuovi
           contenuti.
         </p>
-        <UButton to="/admin" variant="soft" color="primary">
-          <Icon name="i-heroicons-plus" class="w-4 h-4 mr-2" />
-          Aggiungi il primo articolo
-        </UButton>
       </div>
     </div>
   </UPageSection>
@@ -198,7 +190,8 @@
 // Assumendo che useContentStore e useUtils esistano e siano importabili.
 
 const contentStore = useContentStore();
-const { getCategoryColor, getDefaultImage, formatDate } = useUtils();
+const { getCategoryColor, getCleanedImageUrl, getDefaultImage, formatDate } =
+  useUtils();
 
 const { pending, error } = await useAsyncData("blog-posts-fetch", async () => {
   await contentStore.fetchContent();
@@ -209,25 +202,21 @@ const { pending, error } = await useAsyncData("blog-posts-fetch", async () => {
 
 // 1. Stato reattivo locale (la stringa del tag)
 // const activeTag = ref("Tutti");
-const activeTag = ref(contentStore.allTags[0]);
-
-// 2. Getter per tutti i tag disponibili
-// const availableTags = computed(() => ["Tutti", ...contentStore.allTags]);
-const availableTags = computed(() => [...contentStore.allTags]);
 
 // 3. Formato richiesto da UTabs: DEVE includere 'value' per l'opzione :by="'value'"
 const tagItems = computed(
   () => [
-    { label: "Sociale", value: "sociale" },
-    { label: "Cultura", value: "cultura" },
-    { label: "Sostenibilità", value: "sostenibilita" },
-    { label: "Economia", value: "economia" },
+    { label: "Sociale", value: "Sociale" },
+    { label: "Cultura", value: "Cultura" },
+    { label: "Sostenibilità", value: "Sostenibilità" },
+    { label: "Economia", value: "Economia" },
   ]
   // availableTags.value.map((tag) => ({
   //   label: tag,
   //   value: tag, // Il valore è la stringa del tag
   // }))
 );
+const activeTag = ref(null);
 
 // --- Logica Articoli ---
 // Getter Pinia 'getPostsByTag' è reattivo e dipende da activeTag.value
@@ -239,7 +228,9 @@ const filteredArticles = computed(() =>
 const featuredArticle = computed(() => filteredArticles.value[0]);
 const otherArticles = computed(() => filteredArticles.value.slice(1, 5));
 
-// Funzioni di utilità
+onMounted(() => {
+  activeTag.value = "Sociale";
+});
 </script>
 
 <style scoped>

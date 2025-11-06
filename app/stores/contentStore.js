@@ -11,6 +11,7 @@ export const useContentStore = defineStore("content", {
 
   getters: {
     allTags: (state) => {
+      debugger;
       const tags = new Set();
       state.posts.forEach((post) => {
         post.tags?.forEach((tag) => tags.add(tag));
@@ -20,7 +21,9 @@ export const useContentStore = defineStore("content", {
 
     getPostsByTag: (state) => (tag) => {
       if (!tag || tag === "Tutti") return state.posts;
-      return state.posts.filter((p) => p.tags?.includes(tag));
+      var x = state.posts.filter((p) => p.tags?.includes(tag));
+      debugger;
+      return x;
     },
   },
 

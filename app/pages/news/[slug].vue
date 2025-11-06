@@ -5,11 +5,11 @@
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="mb-6">
           <UBadge
-            :color="getCategoryColor(post.meta?.category)"
+            :class="getCategoryColor(post.meta.category)"
             variant="solid"
             size="lg"
           >
-            {{ post.tags }}
+            {{ post.meta.category }}
           </UBadge>
         </div>
 
@@ -58,7 +58,7 @@
         <!-- Article Actions -->
         <div class="mt-12 pt-8 border-t border-gray-200">
           <div class="flex items-center justify-between">
-            <div class="flex space-x-4">
+            <div class="flex space-x-4" v-if="false">
               <UButton variant="soft" icon="i-heroicons-share">
                 Condividi
               </UButton>
@@ -95,10 +95,7 @@
               <template #header>
                 <div class="h-48 overflow-hidden rounded-t-lg">
                   <img
-                    :src="
-                      relatedPost.meta?.image ||
-                      getDefaultImage(relatedPost.meta?.category)
-                    "
+                    :src="getCleanedImageUrl(relatedPost.meta?.image)"
                     :alt="relatedPost.title"
                     class="w-full h-full object-cover"
                   />
@@ -171,7 +168,8 @@
 
 <script setup>
 import { storeToRefs } from "pinia";
-const { getCategoryColor, getDefaultImage, formatDate } = useUtils();
+const { getCategoryColor, getCleanedImageUrl, getDefaultImage, formatDate } =
+  useUtils();
 
 const route = useRoute();
 const contentStore = useContentStore();

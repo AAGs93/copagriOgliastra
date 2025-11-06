@@ -9,24 +9,18 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white">
+    <footer class="bg-secondary text-white rounded-t-md">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <div class="flex items-center space-x-2 mb-4">
               <img
-                src="https://images.pexels.com/photos/974314/pexels-photo-974314.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&fit=crop"
+                src="/images/logo_copagri_og1.PNG"
                 alt="Copagri Ogliastra Logo"
-                class="w-10 h-10 rounded-lg object-cover"
+                class="h-10 rounded-lg object-cover"
               />
-              <div>
-                <div class="font-bold">Copagri Ogliastra</div>
-                <div class="text-sm text-gray-400">
-                  Confederazione Produttori Agricoli
-                </div>
-              </div>
             </div>
-            <p class="text-gray-300 text-sm">
+            <p class="text-gray-100 text-sm">
               Rappresentiamo e sosteniamo le imprese agricole dell'Ogliastra,
               valorizzando la terra, le persone e i prodotti che la rendono
               unica.
@@ -34,8 +28,8 @@
           </div>
 
           <div>
-            <h3 class="font-semibold mb-4">Servizi</h3>
-            <ul class="space-y-2 text-sm text-gray-300">
+            <h3 class="font-semibold text-white mb-4">Servizi</h3>
+            <ul class="space-y-2 text-sm text-gray-100">
               <li>Assistenza amministrativa</li>
               <li>Assistenza fiscale</li>
               <li>Assistenza tecnica</li>
@@ -44,18 +38,28 @@
           </div>
 
           <div>
-            <h3 class="font-semibold mb-4">Contatti</h3>
-            <div class="space-y-2 text-sm text-gray-300">
-              <div class="flex items-center space-x-2">
-                <Icon name="i-heroicons-envelope" class="w-4 h-4" />
-                <span>[email]</span>
+            <h3 class="font-semibold mb-4 text-white">Contatti</h3>
+            <div class="space-y-2 text-sm text-gray-100">
+              <div class="flex items-center space-x-2 hover:text-secondary-700">
+                <Icon name="i-heroicons-envelope-solid" class="w-4 h-4" />
+                <NuxtLink
+                  to="mailto:sevizioagrivet@gmail.com"
+                  class="hover:text-secondary-700"
+                >
+                  sevizioagrivet@gmail.com
+                </NuxtLink>
               </div>
-              <div class="flex items-center space-x-2">
-                <Icon name="i-heroicons-envelope" class="w-4 h-4" />
-                <span>[email]</span>
+              <div class="flex items-center space-x-2 hover:text-secondary-700">
+                <Icon name="i-heroicons-envelope-solid " class="w-4 h-4" />
+                <NuxtLink
+                  to="mailto:caacafagri.ogliastra@pec.it"
+                  class="hover:text-secondary-700"
+                >
+                  caacafagri.ogliastra@pec.it
+                </NuxtLink>
               </div>
               <div class="flex items-start space-x-2">
-                <Icon name="i-heroicons-map-pin" class="w-4 h-4 mt-0.5" />
+                <Icon name="i-heroicons-map-pin-solid" class="w-4 h-4 mt-0.5" />
                 <span>Via Roma n.56, Villagrande Strisaili 08049</span>
               </div>
             </div>
@@ -65,7 +69,7 @@
         <div
           class="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400"
         >
-          <p>
+          <p class="text-gray-100">
             &copy; {{ new Date().getFullYear() }} Copagri Ogliastra. Tutti i
             diritti riservati.
           </p>

@@ -33,27 +33,34 @@
                   <h3 class="font-semibold text-gray-900 mb-1">
                     Indirizzo sede
                   </h3>
-                  <p class="text-gray-600">[via, città]</p>
-                </div>
-              </div>
-
-              <!-- Telefono -->
-              <div class="flex items-start space-x-4">
-                <div
-                  class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0"
-                >
-                  <Icon
-                    name="i-heroicons-phone"
-                    class="w-6 h-6 text-blue-600"
-                  />
-                </div>
-                <div>
-                  <h3 class="font-semibold text-gray-900 mb-1">Telefono</h3>
-                  <p class="text-gray-600">[numero]</p>
+                  <p class="text-gray-600">
+                    Via Roma n.56, Villagrande Strisaili 08049
+                  </p>
                 </div>
               </div>
 
               <!-- Email -->
+              <div class="flex items-start space-x-4">
+                <div
+                  class="w-12 h-12 bg-secondary-50 rounded-lg flex items-center justify-center flex-shrink-0"
+                >
+                  <Icon
+                    name="i-heroicons-envelope"
+                    class="w-6 h-6 text-secondary"
+                  />
+                </div>
+                <div>
+                  <h3 class="font-semibold text-gray-900 mb-1">Email</h3>
+                  <NuxtLink
+                    class="text-sm text-gray-600 hover:text-primary font-medium"
+                    to="mailto:sevizioagrivet@gmail.com"
+                  >
+                    sevizioagrivet@gmail.com
+                  </NuxtLink>
+                </div>
+              </div>
+
+              <!-- Pec -->
               <div class="flex items-start space-x-4">
                 <div
                   class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0"
@@ -64,8 +71,13 @@
                   />
                 </div>
                 <div>
-                  <h3 class="font-semibold text-gray-900 mb-1">Email</h3>
-                  <p class="text-gray-600">[email]</p>
+                  <h3 class="font-semibold text-gray-900 mb-1">Pec</h3>
+                  <NuxtLink
+                    class="text-sm text-gray-600 hover:text-primary font-medium"
+                    to="mailto:caacafagri.ogliastra@pec.it"
+                  >
+                    caacafagri.ogliastra@pec.it
+                  </NuxtLink>
                 </div>
               </div>
 
@@ -83,16 +95,18 @@
                   <h3 class="font-semibold text-gray-900 mb-1">
                     Orari di apertura
                   </h3>
-                  <p class="text-gray-600">[giorni e orari]</p>
+                  <p class="text-gray-600">
+                    Aperto dal lunedì al venerdì ore 9:00 - 12:30.
+                  </p>
                 </div>
               </div>
             </div>
 
             <!-- Mappa Placeholder -->
             <div class="mt-12">
-              <h3 class="text-lg font-semibold text-gray-900 mb-4">
+              <h2 class="text-2xl font-bold text-gray-900 mb-8">
                 Dove trovarci
-              </h3>
+              </h2>
               <div
                 class="bg-gray-200 rounded-lg h-64 flex items-center justify-center"
               >
@@ -114,6 +128,7 @@
           <!-- Form di contatto -->
           <div class="text-pretty space-y-10">
             <div
+              v-if="false"
               class="space-y-4 p-5 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700"
             >
               <h4
