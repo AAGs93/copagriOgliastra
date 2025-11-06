@@ -10,7 +10,7 @@ author: Copagri Ogliastra
 category: Cultura
 published: true
 ---
-**Firenze, mercato di Sant’Ambrogio** – Passeggiata tra i banchi per la presidente della **Banca Centrale Europea**, **Christine Lagarde**, in visita nel capoluogo toscano alla vigilia del consiglio direttivo della BCE.
+
  Accompagnata da alcuni collaboratori, Lagarde si è concessa un giro tra le bancarelle del **mercato**, dove ha salutato commercianti e curiosi, soffermandosi a commentare l’andamento dei **prezzi dei beni alimentari**.
 
 «Dovremo discutere di questioni molto serie, ma essere qui a Firenze ti mette in uno stato d’animo molto positivo.

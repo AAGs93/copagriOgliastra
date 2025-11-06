@@ -1,8 +1,11 @@
 ---
+excerpt: Il Consiglio dei Ministri ha approvato il decreto-legge “Lavoro e
+  Sicurezza”, che include il nuovo Pacchetto Agricoltura promosso dal Ministro
+  dell’Agricoltura, della Sovranità alimentare e delle Foreste, Francesco
+  Lollobrigida.
 title: "Pacchetto Agricoltura: premiate le imprese agricole che investono in
   sicurezza e legalità"
-tags:
-  - Sociale
+tags: Sociale
 slug: Il Consiglio dei Ministri ha approvato il decreto-legge “Lavoro e
   Sicurezza”, che include il nuovo Pacchetto Agricoltura promosso dal Ministro
   dell’Agricoltura, della Sovranità alimentare e delle Foreste, Francesco
@@ -10,16 +13,9 @@ slug: Il Consiglio dei Ministri ha approvato il decreto-legge “Lavoro e
 date: 2025-11-05T10:38:00.000+01:00
 author: Copagri Ogliastra
 category: Sociale
-excerpt: Il Consiglio dei Ministri ha approvato il decreto-legge “Lavoro e
-  Sicurezza”, che include il nuovo Pacchetto Agricoltura promosso dal Ministro
-  dell’Agricoltura, della Sovranità alimentare e delle Foreste, Francesco
-  Lollobrigida.
 published: true
 ---
 
-# 🌾 Il Pacchetto Agricoltura: Lavoro e Sicurezza per le Imprese Agricole Virtuose
-
-Il **Consiglio dei Ministri** ha approvato il decreto-legge **“Lavoro e Sicurezza”**, che include il nuovo **Pacchetto Agricoltura** promosso dal Ministro dell’Agricoltura, della Sovranità alimentare e delle Foreste, **Francesco Lollobrigida**.
 
 L’obiettivo è **sostenere le imprese agricole virtuose**, promuovere la **sicurezza sul lavoro** in agricoltura e rafforzare la **rete del lavoro di qualità** in tutto il territorio nazionale.
 

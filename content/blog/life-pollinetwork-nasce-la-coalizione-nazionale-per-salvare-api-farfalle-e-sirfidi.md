@@ -11,7 +11,7 @@ author: Copagri Ogliastra
 category: Sostenibilità
 published: true
 ---
-**Al via LIFE PolliNetwork**, il più grande progetto italiano per la **tutela degli impollinatori** – api, farfalle e sirfidi – cofinanziato dall’**Unione Europea** con il supporto del **Ministero dell’Ambiente e della Sicurezza Energetica (MASE)** e della **Fondazione Cariplo**.
+
  L’iniziativa, unica nel suo genere, coinvolge 11 regioni italiane e punta a contrastare il drastico declino degli insetti impollinatori, fondamentali per la nostra **biodiversità** e per la **produzione agricola**.
 
 ### **Impollinatori in pericolo: un’emergenza globale**

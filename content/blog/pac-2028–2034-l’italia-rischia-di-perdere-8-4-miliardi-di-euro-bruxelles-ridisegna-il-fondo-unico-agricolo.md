@@ -11,7 +11,7 @@ author: Copagri Ogliastra
 category: Economia
 published: true
 ---
-**Secondo un’analisi di ItaliaOggi**, la nuova proposta della **Commissione europea** per la **Politica Agricola Comune (PAC)** 2028–2034 potrebbe ridurre le risorse destinate all’Italia di circa **8,4 miliardi di euro** rispetto all’attuale periodo di programmazione.
+
  Un taglio che avrebbe effetti diretti anche sulle **imprese agricole del territorio**, già alle prese con rincari e costi di produzione elevati.
 
 ### **Un “buco” da 8,4 miliardi per la nuova PAC**
