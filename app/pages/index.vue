@@ -336,6 +336,30 @@
       ]"
     >
     </UPageSection>
+
+    <!-- page logos  -->
+    <UPageSection
+      title="I Nostri Stakeholder e Partner Istituzionali"
+      class="bg-white"
+    >
+      <UPageLogos marquee>
+        <UAvatar
+          class="h-32 w-32 object-cover"
+          src="/images/logo_copagri_og.png"
+          alt="Copagri Logo"
+        />
+        <UAvatar
+          class="h-32 w-32 object-cover"
+          src="/images/logo_copagri_og.png"
+          alt="Copagri Logo"
+        />
+        <UAvatar
+          class="h-32 w-32 object-cover"
+          src="/images/logo_copagri_og.png"
+          alt="Copagri Logo"
+        />
+      </UPageLogos>
+    </UPageSection>
   </div>
 </template>
 

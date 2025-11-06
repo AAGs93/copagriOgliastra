@@ -95,7 +95,7 @@
             :key="post.id"
             :title="post.title"
             :description="post.description"
-            :image="getPostImage(post)"
+            :image="getCleanedImageUrl(post.image)"
             :date="post.date"
             :author="post.meta.author"
             :to="`/news/${post.meta.slug}`"
@@ -124,7 +124,7 @@
 
 <script setup>
 import { useContentStore } from "~/stores/contentStore";
-const { getCategoryColor } = useUtils();
+const { getCategoryColor, getCleanedImageUrl } = useUtils();
 
 const contentStore = useContentStore();
 
