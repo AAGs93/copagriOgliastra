@@ -20,7 +20,7 @@
         <div class="flex items-center space-x-6 text-gray-300">
           <div class="flex items-center space-x-2">
             <Icon name="i-heroicons-calendar" class="w-5 h-5" />
-            <span>{{ formatDate(post.meta?.date) }}</span>
+            <span>{{ formatDate(post.date) }}</span>
           </div>
           <div class="flex items-center space-x-2">
             <Icon name="i-heroicons-user" class="w-5 h-5" />
@@ -34,15 +34,59 @@
       </div>
     </section>
 
-    <!-- Article Content -->
+    <!-- ✅ Article Content + TOC sidebar -->
     <article class="py-16 bg-white">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="prose prose-lg max-w-none">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex gap-10">
+        <!-- ✅ Sticky Sidebar TOC -->
+        <aside
+          v-if="headings.length"
+          class="hidden lg:block w-80 sticky top-10 h-fit bg-gray-50 border border-gray-200 rounded-xl p-5"
+        >
+          <h3 class="text-lg font-semibold mb-4 text-gray-900">
+            In questo articolo
+          </h3>
+
+          <nav>
+            <ul class="space-y-2">
+              <li v-for="heading in headings" :key="heading.id">
+                <a
+                  :href="`#${heading.id}`"
+                  :class="[
+                    'block text-sm transition',
+                    activeSection === heading.id
+                      ? 'text-red-600 font-semibold'
+                      : 'text-gray-700 hover:text-red-600',
+                  ]"
+                >
+                  {{ heading.text }}
+                </a>
+
+                <ul v-if="heading.children" class="ml-4 mt-2 space-y-1">
+                  <li v-for="child in heading.children" :key="child.id">
+                    <a
+                      :href="`#${child.id}`"
+                      :class="[
+                        'text-xs transition',
+                        activeSection === child.id
+                          ? 'text-red-600 font-semibold'
+                          : 'text-gray-600 hover:text-red-600',
+                      ]"
+                    >
+                      {{ child.text }}
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </aside>
+
+        <!-- ✅ Body -->
+        <div class="prose prose-lg max-w-none w-full">
           <p class="text-xl text-gray-600 mb-8 font-medium">
-            {{ post.description }}
+            {{ post.meta?.slug }}
           </p>
 
-          <!-- Hero Image -->
           <div v-if="post.meta?.image" class="mb-8">
             <img
               :src="post.meta.image"
@@ -51,85 +95,10 @@
             />
           </div>
 
-          <!-- Article body from Markdown -->
           <ContentRenderer :value="post" />
-        </div>
-
-        <!-- Article Actions -->
-        <div class="mt-12 pt-8 border-t border-gray-200">
-          <div class="flex items-center justify-between">
-            <div class="flex space-x-4" v-if="false">
-              <UButton variant="soft" icon="i-heroicons-share">
-                Condividi
-              </UButton>
-              <UButton variant="soft" icon="i-heroicons-printer">
-                Stampa
-              </UButton>
-            </div>
-
-            <NuxtLink to="/contatti">
-              <UButton color="red">
-                <Icon name="i-heroicons-phone" class="w-4 h-4 mr-2" />
-                Contattaci per info
-              </UButton>
-            </NuxtLink>
-          </div>
         </div>
       </div>
     </article>
-
-    <!-- Related Articles -->
-    <section v-if="relatedPosts.length > 0" class="py-16 bg-gray-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl font-bold text-gray-900 mb-8">
-          Articoli correlati
-        </h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <article
-            v-for="relatedPost in relatedPosts"
-            :key="relatedPost._id"
-            class="card-hover"
-          >
-            <UCard>
-              <template #header>
-                <div class="h-48 overflow-hidden rounded-t-lg">
-                  <img
-                    :src="getCleanedImageUrl(relatedPost.meta?.image)"
-                    :alt="relatedPost.title"
-                    class="w-full h-full object-cover"
-                  />
-                </div>
-              </template>
-
-              <div class="p-6">
-                <div
-                  class="flex items-center space-x-2 text-sm text-gray-500 mb-3"
-                >
-                  <Icon name="i-heroicons-calendar" class="w-4 h-4" />
-                  <span>{{ formatDate(relatedPost.meta?.date) }}</span>
-                </div>
-
-                <h3 class="text-lg font-semibold mb-3 line-clamp-2">
-                  {{ relatedPost.title }}
-                </h3>
-
-                <p class="text-gray-600 text-sm mb-4 line-clamp-2">
-                  {{ relatedPost.description }}
-                </p>
-
-                <NuxtLink :to="relatedPost._path">
-                  <UButton variant="soft" size="sm">
-                    Leggi di più
-                    <Icon name="i-heroicons-arrow-right" class="w-3 h-3 ml-1" />
-                  </UButton>
-                </NuxtLink>
-              </div>
-            </UCard>
-          </article>
-        </div>
-      </div>
-    </section>
 
     <!-- Back to News -->
     <section class="py-8 bg-white border-t">
@@ -153,9 +122,6 @@
       <h1 class="text-2xl font-bold text-gray-900 mb-2">
         Articolo non trovato
       </h1>
-      <p class="text-gray-600 mb-6">
-        L'articolo che stai cercando non esiste o è stato rimosso.
-      </p>
       <NuxtLink to="/news">
         <UButton>
           <Icon name="i-heroicons-arrow-left" class="w-4 h-4 mr-2" />
@@ -165,9 +131,10 @@
     </div>
   </div>
 </template>
-
 <script setup>
+import { onMounted, ref, computed } from "vue";
 import { storeToRefs } from "pinia";
+
 const { getCategoryColor, getCleanedImageUrl, getDefaultImage, formatDate } =
   useUtils();
 
@@ -175,17 +142,36 @@ const route = useRoute();
 const contentStore = useContentStore();
 const { posts } = storeToRefs(contentStore);
 
-// ✅ Carica i contenuti se non sono già in memoria
+// ✅ Carica contenuti se non presenti
 await useAsyncData("blog-post", async () => {
-  if (!posts.value.length) {
-    await contentStore.fetchContent();
-  }
+  if (!posts.value.length) await contentStore.fetchContent();
   return true;
 });
 
-// ✅ Trova l’articolo corrente
-const post = computed(() => {
-  return posts.value.find((p) => p.meta.slug === `${route.params.slug}`);
+// ✅ Articolo corrente
+const post = computed(() =>
+  posts.value.find((p) => p.meta.slug === `${route.params.slug}`)
+);
+
+// ✅ TOC headings estratti da nuxt content
+const headings = computed(() => post.value?.body?.toc?.links || []);
+
+// ✅ Scrollspy
+const activeSection = ref(null);
+
+onMounted(() => {
+  const allAnchors = document.querySelectorAll("h2[id], h3[id]");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) activeSection.value = entry.target.id;
+      });
+    },
+    { rootMargin: "-60% 0px -30% 0px", threshold: 0 }
+  );
+
+  allAnchors.forEach((a) => observer.observe(a));
 });
 
 // ✅ Articoli correlati
@@ -200,7 +186,7 @@ const relatedPosts = computed(() => {
     .slice(0, 3);
 });
 
-// ✅ Tempo di lettura stimato
+// ✅ Reading time
 const readingTime = computed(() => {
   if (!post.value) return 0;
   const wordsPerMinute = 200;
@@ -209,21 +195,10 @@ const readingTime = computed(() => {
 });
 
 // ✅ SEO dinamico
-useHead(() => {
-  if (!post.value) {
-    return {
-      title: "Articolo non trovato - Copagri Ogliastra",
-    };
-  }
-
-  return {
-    title: `${post.value.title} - Copagri Ogliastra`,
-    meta: [
-      {
-        name: "description",
-        content: post.value.description,
-      },
-    ],
-  };
-});
+useHead(() => ({
+  title: post.value
+    ? `${post.value.title} - Copagri Ogliastra`
+    : "Articolo non trovato",
+  meta: [{ name: "description", content: post.value?.description || "" }],
+}));
 </script>
