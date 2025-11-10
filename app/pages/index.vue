@@ -340,24 +340,74 @@
     <!-- page logos  -->
     <UPageSection
       title="I Nostri Stakeholder e Partner Istituzionali"
+      description="Copagri Ogliastra partecipa attivamente ai tavoli di confronto politico, tecnico e sindacale del territorio, in rappresentanza delle imprese agricole locali.
+Grazie a queste collaborazioni, Copagri Ogliastra contribuisce alla definizione delle politiche di sviluppo rurale, tutela ambientale, innovazione e sostegno al lavoro agricolo."
       class="bg-white"
     >
       <UPageLogos marquee>
-        <UAvatar
-          class="h-32 w-32 object-cover"
-          src="/images/logo_copagri_og.png"
-          alt="Copagri Logo"
-        />
-        <UAvatar
-          class="h-32 w-32 object-cover"
-          src="/images/logo_copagri_og.png"
-          alt="Copagri Logo"
-        />
-        <UAvatar
-          class="h-32 w-32 object-cover"
-          src="/images/logo_copagri_og.png"
-          alt="Copagri Logo"
-        />
+        <UAvatar class="h-40 w-40 rounded-full bg-white p-4">
+          <img
+            src="/images/stakeholder/agrinsieme.png"
+            class="object-contain h-full w-full"
+            alt="agrinsieme Logo"
+          />
+        </UAvatar>
+
+        <UAvatar class="h-40 w-40 rounded-full bg-white p-4">
+          <img
+            src="/images/stakeholder/comune_villagrande.png"
+            class="object-contain h-full w-full"
+            alt="comune di villagrande Strisaili Logo"
+          />
+        </UAvatar>
+
+        <UAvatar class="h-64 w-64 rounded-full bg-white p-4">
+          <img
+            src="/images/stakeholder/consorzio industriale prov og.png"
+            class="object-contain h-full w-full"
+            alt="Consorzio industriale Logo"
+          />
+        </UAvatar>
+
+        <UAvatar class="h-40 w-40 rounded-full bg-white p-4">
+          <img
+            src="/images/stakeholder/consorzio_bonifica_og.png"
+            class="object-contain h-full w-full"
+            alt="consorzio bonifica Logo"
+          />
+        </UAvatar>
+
+        <UAvatar class="h-40 w-40 rounded-full bg-white p-4">
+          <img
+            src="/images/stakeholder/cru.png"
+            class="object-contain h-full w-full"
+            alt="CRU Logo"
+          />
+        </UAvatar>
+
+        <UAvatar class="h-40 w-40 rounded-full bg-white p-4">
+          <img
+            src="/images/stakeholder/ianas.jpg"
+            class="object-contain h-full w-full"
+            alt="Ianas Logo"
+          />
+        </UAvatar>
+
+        <UAvatar class="h-40 w-40 rounded-full bg-white p-4">
+          <img
+            src="/images/stakeholder/stemma.jpg"
+            class="object-contain h-full w-full"
+            alt="Copagri Logo"
+          />
+        </UAvatar>
+
+        <UAvatar class="h-40 w-40 rounded-full bg-white p-4">
+          <img
+            src="/images/stakeholder/unipol.svg"
+            class="object-contain h-full w-full"
+            alt="Unipol Logo"
+          />
+        </UAvatar>
       </UPageLogos>
     </UPageSection>
   </div>
